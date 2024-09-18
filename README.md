@@ -2,7 +2,7 @@
 
 ### Сборка контейнера
 ```sh
-docker-compose  up --build -d django-drama
+docker-compose up --build -d django-drama
 ```
 
 ### Запуск сервера
@@ -18,4 +18,9 @@ docker-compose exec django-drama python3 manage.py migrate
 ### Cоздание супер-пользователя
 ```sh
 docker-compose exec django-drama python3 manage.py createsuperuser
+```
+
+### Остановка контейнера
+```sh
+docker-compose stop django-drama
 ```
