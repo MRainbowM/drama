@@ -18,7 +18,6 @@ json_files
 /media
 export_fs.csv
 export_mfp.csv
-dump_postgre_food_tracker.sql
 .venv
 django.mo
 node_modules
