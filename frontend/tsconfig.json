@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "paths": {
+      "public/*": ["./public/*"]
+    },
     "lib": [
       "dom",
       "dom.iterable",
@@ -23,6 +26,7 @@
     ]
   },
   "include": [
+    "svgr.d.ts",
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",

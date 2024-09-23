@@ -1,11 +1,14 @@
 import styles from './Header.module.scss'
+import Logo from 'public/static/images/nd.svg'
 
-import Image from 'next/image'
+
+console.log(Logo)
 
 export default function Header() {
     return (
         <div className={styles.header}>
-            <Image src={`/static/images/nd.png`} alt='НД' width="50" height="50" />
+            <Logo className={styles.logo}/>
+
             
             <div className={styles.burger}>
                 <div className={styles.line}></div>
