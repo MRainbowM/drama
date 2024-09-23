@@ -1,8 +1,7 @@
 .header {
     display: flex;
-    width: 350px;
+    width: var(--header-width-base);
     height: 70px;
-    color: #ffffff;
     padding: 10px;
 
     margin-top: 20px;
@@ -11,14 +10,14 @@
 
     justify-content: space-between;
     align-items: center;
-    background-color: var(--color-black);
+    background-color: var(--color-white);
+    color: var(--color-black);
 
 }
 
 .logo {
     width: 50px;
     height: 50px;
-    color: black;
 }
 
 .menu {}
@@ -41,5 +40,5 @@
 .burger>.line {
     width: 25px;
     height: 3px;
-    background-color: #fff;
+    background-color: currentColor;
 }

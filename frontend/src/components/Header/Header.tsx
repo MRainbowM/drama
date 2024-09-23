@@ -2,14 +2,12 @@ import styles from './Header.module.scss'
 import Logo from 'public/static/images/nd.svg'
 
 
-console.log(Logo)
-
 export default function Header() {
     return (
         <div className={styles.header}>
-            <Logo className={styles.logo}/>
+            <Logo className={styles.logo} />
 
-            
+
             <div className={styles.burger}>
                 <div className={styles.line}></div>
                 <div className={styles.line}></div>

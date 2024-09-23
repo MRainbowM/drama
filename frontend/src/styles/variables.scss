@@ -1,3 +1,11 @@
 :root {
     --color-black: #1d1d1d;
+    --color-white: #ffffff;
+
+    --header-width-base: clamp(350px, 35vw, 500px);
+
+    @media (max-width: 500px) {
+        --header-width-base: 100%;
+    }
 }
+
