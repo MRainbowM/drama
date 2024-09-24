@@ -1,9 +1,9 @@
-import styles from './EventList.module.scss'
+import styles from './Event.module.scss'
 import Image from 'next/image'
 
 
 
-export default function EventList() {
+export default function Event() {
     return (
         <div>
             <div className={styles.event}>
