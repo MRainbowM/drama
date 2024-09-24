@@ -1,9 +1,3 @@
-.eventList {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
 .event {
     display: grid;
     grid-template-columns: 1fr var(--header-width-base) 1fr;
