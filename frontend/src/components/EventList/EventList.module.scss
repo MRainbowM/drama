@@ -4,27 +4,23 @@
     width: 100%;
 }
 
-
 .event {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr var(--header-width-base) 1fr;
+    gap: 20px;
     width: 100%;
     border-top: solid 1px var(--color-white);
-    padding-top: 50px;
-}
-
-.eventDate {
-    min-width: calc((100% - var(--header-width-base)) / 2)
+    padding: 50px 0;
 }
 
 .eventDate,
 .eventTitle {
     font-size: 40px;
     text-transform: uppercase;
-    line-height: 40px;
+    // line-height: 40px;
 }
 
 .eventCover {
-    width: var(--header-width-base);
 
     img {
         height: 100%;
@@ -44,7 +40,6 @@
     flex-direction: column;
     flex-wrap: wrap;
     font-size: 18px;
-    margin-left: 25px;
 }
 
 .eventTitle {
@@ -53,24 +48,17 @@
 }
 
 @media (max-width: 1023px) {
+
     .event {
-        flex-wrap: wrap;
-        padding-top: 35px;
+        grid-template-columns: 1fr 1fr;
+        padding: 35px 0;
+        gap: 15px;
     }
 
     .eventDate {
-        width: 100%;
         font-size: 18px;
-        margin: 0 0 10px 0;
+        grid-column: span 2;
     }
-
-    .eventCover {
-        width: calc(50% - 15px);
-    }
-
-    .eventInfo {
-        max-width: calc(50% - 25px);
-    }  
 
     .eventTitle {
         font-size: 32px;
@@ -79,9 +67,21 @@
 }
 
 @media (max-width: 500px) {
+
+    .event {
+        grid-template-columns: 1fr;
+        padding: 20px 0;
+    }
+
+    .eventDate {
+        font-size: 18px;
+        grid-column: span 1;
+    }
+
     .eventCover {
         width: 100%;
         margin: 0 0 15px 0;
+        grid-column: span 1;
     }
 
     .eventInfo {
