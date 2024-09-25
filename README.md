@@ -20,6 +20,11 @@ docker-compose exec django-drama python3 manage.py migrate
 docker-compose exec django-drama python3 manage.py createsuperuser
 ```
 
+### Создание приложения
+```sh
+docker-compose exec django-drama python3 manage.py startapp {app_name}
+```
+
 ### Остановка контейнера
 ```sh
 docker-compose stop django-drama
