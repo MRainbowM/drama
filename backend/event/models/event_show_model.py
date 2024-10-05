@@ -8,7 +8,7 @@ from .event_model import Event
 class EventShow(DatesAbstract):
     """Афиша"""
 
-    event_id = models.ForeignKey(Event, on_delete=models.CASCADE, verbose_name=_('Спектакль'))
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, verbose_name=_('Спектакль'))
     start_at = models.DateTimeField(_('Дата и время начала спектакля'))
     # end_at = models.DateTimeField(_('Дата и время окончания спектакля'))
 
