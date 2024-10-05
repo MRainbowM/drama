@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { components } from '../../api/schema'
 import styles from './EventShow.module.scss'
 import Image from 'next/image'
@@ -21,9 +22,12 @@ export default function EventShow({ data }: EventShowProps) {
             </div>
 
             <div className={styles.eventInfo}>
-                <div className={styles.eventTitle}>
+                <Link
+                    className={styles.eventTitle}
+                    href={`/event/${data.event.slug}`}
+                >
                     <span>{data.event.name}</span>
-                </div>
+                </Link>
                 <div>
                     <span>{data.event.short_description}</span>
                 </div>

@@ -40,6 +40,8 @@ export interface components {
             short_description: string;
             /** Cover */
             cover: string;
+            /** Slug */
+            slug: string;
         };
         /** EventShowSchema */
         EventShowSchema: {
