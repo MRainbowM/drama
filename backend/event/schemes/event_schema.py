@@ -6,3 +6,4 @@ class EventSchema(Schema):
     name: str
     short_description: str
     cover: str
+    slug: str
