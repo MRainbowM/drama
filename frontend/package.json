@@ -6,11 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "api-generate": "npx openapi-typescript http://0.0.0.0:8007/api/openapi.json -o ./src/api/schema.d.ts"
   },
   "dependencies": {
     "next": "14.2.12",
     "node": "^22.9.0",
+    "openapi-fetch": "^0.12.2",
     "react": "^18",
     "react-dom": "^18",
     "sass": "^1.79.1"

@@ -1,10 +1,18 @@
-import styles from './page.module.scss'
-import Container from '../components/Container/Container'
+import { apiClient } from '../api/client'
+import EventShow from '../components/EventShow/EventShow'
 
-export default function Page() {
-    return <div className={styles.page}>
-        <Container />
-    </div>
+export default async function Page() {
+    const response = await apiClient.GET('/api/event_show/list')
 
+    if (response.error) {
+        throw new Error('qweqwe')
+    }
 
+    return (
+        <>
+            {response.data.map(item => (
+                <EventShow key={item.id} data={item} />
+            ))}
+        </>
+    )
 }

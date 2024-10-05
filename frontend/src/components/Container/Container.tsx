@@ -1,13 +1,15 @@
 import styles from './Container.module.scss'
-import Header from '../Header/Header'
-import Event from '../Event/Event'
 
-export default function Container() {
+interface ContainerProps {
+    children?: React.ReactNode
+}
+
+export default function Container({
+    children
+}: ContainerProps) {
     return (
         <div className={styles.container}>
-            <Header />
-            <Event />
-            
+            {children}
         </div>
     )
 }
