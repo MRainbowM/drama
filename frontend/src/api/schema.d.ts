@@ -48,6 +48,11 @@ export interface components {
             /** Id */
             id: number;
             event: components["schemas"]["EventSchema"];
+            /**
+             * Start At
+             * Format: date-time
+             */
+            start_at: string;
         };
     };
     responses: never;

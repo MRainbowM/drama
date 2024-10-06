@@ -43,3 +43,9 @@ docker-compose exec django-drama python3 manage.py startapp {app_name}
 ```sh
 npm run dev
 ```
+
+### Генерация схем данных api из сваггера
+```sh
+npm run api-generate
+```
+

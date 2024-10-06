@@ -8,16 +8,26 @@ interface EventShowProps {
 }
 
 export default function EventShow({ data }: EventShowProps) {
+    let eventShowDate = new Intl.DateTimeFormat('ru-RU', {
+        day: 'numeric',
+        month: 'short',
+        hour: 'numeric',
+        minute: 'numeric',
+    }).format(new Date(data.start_at))
+    eventShowDate = eventShowDate.replace('.', '')
+
     return (
         <div className={styles.event}>
-            <div className={styles.eventDate}><span>6 окт, вс</span></div>
+            <div className={styles.eventDate}>
+                <span>{eventShowDate}</span>
+            </div>
 
             <div className={styles.eventCover}>
                 <Image
                     src={data.event.cover}
                     width={500}
                     height={500}
-                    alt="Picture of the author"
+                    alt={data.event.name}
                 />
             </div>
 
