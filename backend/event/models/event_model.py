@@ -19,7 +19,7 @@ class Event(DatesAbstract):
         help_text='Минимальный разрешенный возраст зрителя, например, 18 лет',
         default=0
     )
-    premiere_at = models.DateField(_('Дата премьерыThe datetime and django.utils.timezone modules are available, so it is possible to provide e.g. timezone.now as a value.'))
+    premiere_at = models.DateField(_('Дата премьеры'))
     duration = models.TimeField(_('Длительность спектакля'))
     has_intermission = models.BooleanField(_('Есть антракт'), default=False)
 

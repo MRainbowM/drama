@@ -8,7 +8,7 @@ class EventOutSchema(ModelSchema):
         model = Event
         model_fields = [
             'id', 'name', 'slug', 'short_description', 'cover', 'min_age_limit',
-            'description',
+            'description', 'duration', 'has_intermission'
         ]
 
 
