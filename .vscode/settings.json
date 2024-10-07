@@ -1,0 +1,48 @@
+{
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.wordBasedSuggestions": "off",
+        "editor.defaultFormatter": "ms-python.autopep8",
+    },
+    "[html]": {
+        "editor.suggest.insertMode": "replace"
+    },
+    "autopep8.args": ["--max-line-length=120"],
+    "pylint.args": [
+        "--load-plugins = pylint_django, pylint_celery",
+        "--disable=django-not-configured",
+        "--disable=C0114, C0115, C0116, E1101, E0401, W0401, W0223",
+        "--max-line-length=120",
+    ],
+    "python.formatting.provider": "autopep8",
+    "python.formatting.autopep8Args": [
+        "--max-line-length=120"
+    ],
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--load-plugins = pylint_django, pylint_celery",
+        "--disable=django-not-configured",
+        "--disable=C0114, C0115, C0116, E1101, E0401, W0401, W0223",
+        "--max-line-length=120",
+    ], 
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": ".py",
+                "cmd": "isort ${file} --profile django"
+            }
+        ]
+    },
+    "runItOn": {
+        "commands": [
+            {
+                "match": ".py",
+                "isShellCommand": true,
+                "silent": true,
+                "cmd": "isort ${relativeFile} --profile django"
+            }
+        ]
+    },
+    "cSpell.language": "en,ru"
+}
