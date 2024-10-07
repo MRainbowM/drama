@@ -9,7 +9,7 @@ class Event(DatesAbstract):
     """Репертуар"""
 
     name = models.CharField(_('Название спектакля'), max_length=256, unique=True)
-    slug = models.CharField(_('Слаг названия'), max_length=256)
+    slug = models.CharField(_('Слаг названия'), max_length=256, unique=True)
     short_description = models.TextField(_('Краткое описание'))
     description = models.TextField(_('Подробное описание'))
     is_enable = models.BooleanField(_('Показывать в репертуаре'), default=True)
