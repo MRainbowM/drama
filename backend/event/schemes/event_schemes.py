@@ -1,4 +1,4 @@
-from ninja import ModelSchema, Schema
+from ninja import ModelSchema
 
 from ..models import Event
 
@@ -7,15 +7,14 @@ class EventOut(ModelSchema):
     class Config:
         model = Event
         model_fields = [
-            'id', 'name', 'slug', 'short_description', 'description', 'cover',
-            'min_age_limit'
+            'id', 'name', 'slug', 'short_description', 'cover', 'min_age_limit',
+            'description',
         ]
 
 
-class EventBoundSchema(Schema):
-    id: int
-    name: str
-    slug: str
-    short_description: str
-    cover: str
-    min_age_limit: int
+class EventBoundSchema(ModelSchema):
+    class Config:
+        model = Event
+        model_fields = [
+            'id', 'name', 'slug', 'short_description', 'cover', 'min_age_limit',
+        ]
