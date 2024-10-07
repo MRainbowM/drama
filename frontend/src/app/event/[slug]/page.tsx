@@ -1,5 +1,6 @@
 // import { apiClient } from '../api/client'
 // import EventShow from '../components/EventShow/EventShow'
+import EventDetail from "../../../components/EventDetail/EventDetail"
 
 interface EventPageProps {
     params: {
@@ -7,7 +8,7 @@ interface EventPageProps {
     }
 }
 
-export default async function EventPage({params: {slug}}: EventPageProps) {
+export default async function EventPage({ params: { slug } }: EventPageProps) {
     // const response = await apiClient.GET('/api/event_show/list')
 
     // if (response.error) {
@@ -17,6 +18,7 @@ export default async function EventPage({params: {slug}}: EventPageProps) {
     return (
         <>
             {slug}
+            <EventDetail />
         </>
     )
 }
