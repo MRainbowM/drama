@@ -3,7 +3,7 @@ from ninja import ModelSchema
 from ..models import Event
 
 
-class EventOut(ModelSchema):
+class EventOutSchema(ModelSchema):
     class Config:
         model = Event
         model_fields = [

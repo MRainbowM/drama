@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 from ninja import NinjaAPI, Query
 
 from event.models import EventShow, Event
-from .schemes import EventShowFilterSchema, EventShowOutSchema, EventOut
+from .schemes import EventShowFilterSchema, EventShowOutSchema, EventOutSchema
 
 api = NinjaAPI()
 
@@ -24,11 +24,11 @@ def get_event_show_list(request, filters: EventShowFilterSchema = Query(...)):
 
 
 @api.get(
-    '/event/{event_id}',
-    response=EventOut,
+    '/event/{slug}',
+    response=EventOutSchema,
     tags=[_('Спектакли')],
-    summary=_('Получить данные спектакля по id')
+    summary=_('Получить данные спектакля по slug')
 )
-def get_event_by_id(request, event_id: int):
-    event = get_object_or_404(Event, id=event_id)
+def get_event_by_slug(request, slug: str):
+    event = get_object_or_404(Event, slug=slug)
     return event
