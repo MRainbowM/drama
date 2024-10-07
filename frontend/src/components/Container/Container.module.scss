@@ -1,11 +1,5 @@
 .container {
     margin: 0 auto;
-    width: calc(100% - 90px);
+    width: calc(100% - var(--container-margin-lr));
     max-width: 1590px;
-}
-
-@media (max-width: 767px) {
-    .container {
-        width: calc(100% - 30px);
-    }
 }
