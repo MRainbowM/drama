@@ -9,10 +9,42 @@
         --header-width-base: 100%;
     }
 
+    --header-height: 70px; // Высота хедера
+    --header-top: 20px; // Верхний отступ хедера
 
-    --container-margin-lr: 90px;
+    --container-margin-lr: calc(90px / 2);
 
     @media (max-width: 767px) {
-        --container-margin-lr: 30px;
+        --container-margin-lr: calc(30px / 2);
     }
+
+    --text-opacity: 0.8;
+
+    --h1-h2-font-size: 100px;
+
+    @media (max-width: 500px) {
+        --h1-h2-font-size: 48px;
+    }
+
+    --h3-font-size: 40px;
+
+    @media (max-width: 500px) {
+        --h3-font-size: 32px;
+    }
+
+    --text-font-size: 18px;
+    --text-line-height: 30px;
+
+    --row--padding-tb-base: 50px;
+
+    @media (max-width: 1023px) {
+        --row--padding-tb-base: 35px;
+    }
+
+    @media (max-width: 500px) {
+        --row--padding-tb-base: 20px;
+    }
+
+
+
 }

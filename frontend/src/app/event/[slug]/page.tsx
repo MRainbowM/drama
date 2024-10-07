@@ -17,7 +17,7 @@ export default async function EventPage({ params: { slug } }: EventPageProps) {
 
     return (
         <>
-            {slug}
+            {/* {slug} */}
             <EventDetail />
         </>
     )
