@@ -1,4 +1,5 @@
-// import { apiClient } from '../api/client'
+import path from 'path'
+import { apiClient } from '../../../api/client'
 // import EventShow from '../components/EventShow/EventShow'
 import EventDetail from "../../../components/EventDetail/EventDetail"
 
@@ -9,16 +10,19 @@ interface EventPageProps {
 }
 
 export default async function EventPage({ params: { slug } }: EventPageProps) {
-    // const response = await apiClient.GET('/api/event_show/list')
+    const response = await apiClient.GET('/api/event/{slug}', {
+        params: {
+            path: { slug }
+        }
+    })
 
-    // if (response.error) {
-    //     throw new Error('qweqwe')
-    // }
+    if (response.error) { // TODO: error
+        throw new Error('qweqwe')
+    }
 
     return (
         <>
-            {/* {slug} */}
-            <EventDetail />
+            <EventDetail data={response.data} />
         </>
     )
 }

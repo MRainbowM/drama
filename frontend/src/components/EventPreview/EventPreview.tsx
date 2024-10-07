@@ -4,7 +4,7 @@ import styles from './EventPreview.module.scss'
 import Image from 'next/image'
 
 interface EventPreviewProps {
-    data: components['schemas']['EventShowSchema']
+    data: components['schemas']['EventShowOutSchema']
 }
 
 export default function EventPreview({ data }: EventPreviewProps) {

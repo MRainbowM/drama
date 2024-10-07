@@ -11,8 +11,25 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** Get Event Show List Api */
-        get: operations["event_api_get_event_show_list_api_get_event_show_list_api"];
+        /** Получить список спектаклей в афише */
+        get: operations["event_api_get_event_show_list"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/event/{slug}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Получить данные спектакля по slug */
+        get: operations["event_api_get_event_by_slug"];
         put?: never;
         post?: never;
         delete?: never;
@@ -30,29 +47,66 @@ export interface components {
             /** Start At */
             start_at?: string | null;
         };
-        /** EventSchema */
-        EventSchema: {
-            /** Id */
-            id: number;
-            /** Name */
+        /** EventBoundSchema */
+        EventBoundSchema: {
+            /** ID */
+            id?: number | null;
+            /** Название спектакля */
             name: string;
-            /** Short Description */
-            short_description: string;
-            /** Cover */
-            cover: string;
-            /** Slug */
+            /** Слаг названия */
             slug: string;
+            /** Краткое описание */
+            short_description: string;
+            /** Обложка */
+            cover: string;
+            /**
+             * Возрастное ограничение
+             * @description Минимальный разрешенный возраст зрителя, например, 18 лет
+             * @default 0
+             */
+            min_age_limit: number;
         };
-        /** EventShowSchema */
-        EventShowSchema: {
+        /** EventShowOutSchema */
+        EventShowOutSchema: {
             /** Id */
             id: number;
-            event: components["schemas"]["EventSchema"];
+            event: components["schemas"]["EventBoundSchema"];
             /**
              * Start At
              * Format: date-time
              */
             start_at: string;
+        };
+        /** EventOutSchema */
+        EventOutSchema: {
+            /** ID */
+            id?: number | null;
+            /** Название спектакля */
+            name: string;
+            /** Слаг названия */
+            slug: string;
+            /** Краткое описание */
+            short_description: string;
+            /** Обложка */
+            cover: string;
+            /**
+             * Возрастное ограничение
+             * @description Минимальный разрешенный возраст зрителя, например, 18 лет
+             * @default 0
+             */
+            min_age_limit: number;
+            /** Подробное описание */
+            description: string;
+            /**
+             * Длительность спектакля
+             * Format: time
+             */
+            duration: string;
+            /**
+             * Есть антракт
+             * @default false
+             */
+            has_intermission: boolean;
         };
     };
     responses: never;
@@ -63,7 +117,7 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
-    event_api_get_event_show_list_api_get_event_show_list_api: {
+    event_api_get_event_show_list: {
         parameters: {
             query?: {
                 start_at?: string | null;
@@ -80,7 +134,29 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["EventShowSchema"][];
+                    "application/json": components["schemas"]["EventShowOutSchema"][];
+                };
+            };
+        };
+    };
+    event_api_get_event_by_slug: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                slug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EventOutSchema"];
                 };
             };
         };

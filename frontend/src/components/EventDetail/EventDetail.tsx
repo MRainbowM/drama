@@ -1,22 +1,33 @@
 import styles from './EventDetail.module.scss'
 import Image from 'next/image'
+import { components } from '../../api/schema'
 
-export default function EventDetail() {
+interface EventDetailProps {
+    data: components['schemas']['EventOutSchema']
+}
+
+
+export default function EventDetail({ data }: EventDetailProps) {
+    console.log(data)
+    const intermission = data.has_intermission === true ? 'с антрактом': 'без антрактов'
+    const min_age_limit = data.min_age_limit > 0 ? `, ${data.min_age_limit}+`: ''
+    const duration = data.duration.slice(1)
+
     return (<>
         <div className={styles.eventHeader}>
             <Image
                 className={styles.eventCover}
-                src='/media/event_cover/2024/09/26/image.jpeg'
+                src={data.cover}
                 width={500}
                 height={500}
-                alt=""
+                alt={data.name}
             />
-            <h1>Девушки в любви</h1>
+            <h1>{data.name}</h1>
         </div>
 
         <div className={styles.eventSubHeader}>
-            <span className={styles.eventShortDescription}>Спектакль-розовый POLE-DANCE, 18+</span>
-            <span>2:00, без антрактов</span>
+            <span className={styles.eventShortDescription}>{data.short_description}{min_age_limit}</span>
+            <span>{duration}, {intermission}</span>
         </div>
 
         <div>
