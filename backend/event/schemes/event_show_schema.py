@@ -2,10 +2,10 @@ from datetime import datetime
 
 from ninja import Schema
 
-from .event_schema import EventSchema
+from .bound.event_bound_schema import EventBoundSchema
 
 
 class EventShowSchema(Schema):
     id: int
-    event: EventSchema
+    event: EventBoundSchema
     start_at: datetime
