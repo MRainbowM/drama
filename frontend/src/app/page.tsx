@@ -1,5 +1,6 @@
 import { apiClient } from '../api/client'
-import EventShow from '../components/EventShow/EventShow'
+import EventPreview from '../components/EventPreview/EventPreview'
+import '../styles/page.scss'
 
 export default async function MainPage() {
     const response = await apiClient.GET('/api/event_show/list')
@@ -8,11 +9,10 @@ export default async function MainPage() {
         throw new Error('qweqwe')
     }
 
-    return (
-        <>
-            {response.data.map(item => (
-                <EventShow key={item.id} data={item} />
-            ))}
-        </>
-    )
+    return (<>
+        <h2>Афиша</h2>
+        {response.data.map(item => (
+            <EventPreview key={item.id} data={item} />
+        ))}
+    </>)
 }
