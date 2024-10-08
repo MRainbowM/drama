@@ -1,10 +1,12 @@
-from ninja import Schema
+from ninja import ModelSchema
 
 from .people_schemes import PeopleBoundSchema
+from ..models import EventPeople
 
 
-class EventPeopleOutSchema(Schema):
-    id: int
+class EventPeopleOutSchema(ModelSchema):
     people: PeopleBoundSchema
-    tag: str
-    role: str
+
+    class Config:
+        model = EventPeople
+        model_fields = ['id', 'tag', 'role']

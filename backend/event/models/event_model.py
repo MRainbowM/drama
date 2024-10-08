@@ -1,7 +1,7 @@
-from basis.models.dates_abstract_model import DatesAbstract
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from basis.models.dates_abstract_model import DatesAbstract
 from .services.event_cover_path import event_cover_path
 
 

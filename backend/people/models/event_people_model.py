@@ -10,7 +10,7 @@ from ..choices import PEOPLE_TAG_LIST
 class EventPeople(DatesAbstract):
     """Участники спектаклей"""
 
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, verbose_name=_('Спектакль'))
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, verbose_name=_('Спектакль'), related_name='peoples')
     people = models.ForeignKey(People, on_delete=models.CASCADE, verbose_name=_('Участник'), null=True)
 
     tag = models.CharField(
