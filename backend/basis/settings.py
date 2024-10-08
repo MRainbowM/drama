@@ -25,7 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'basis',
     'ninja',
-    'event'
+    'event',
+    'people'
 ]
 
 MIDDLEWARE = [
