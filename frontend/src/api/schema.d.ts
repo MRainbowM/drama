@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-    "/api/event_show/list": {
+    "/api/event/event_show/list": {
         parameters: {
             query?: never;
             header?: never;
@@ -21,7 +21,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/event/{slug}": {
+    "/api/event/event/{slug}": {
         parameters: {
             query?: never;
             header?: never;
@@ -30,6 +30,23 @@ export interface paths {
         };
         /** Получить данные спектакля по slug */
         get: operations["event_api_get_event_by_slug"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/people/event_people/list/{event_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Получить список участников спектакля */
+        get: operations["people_api_get_event_people_list_by_event_id"];
         put?: never;
         post?: never;
         delete?: never;
@@ -79,6 +96,8 @@ export interface components {
         };
         /** EventOutSchema */
         EventOutSchema: {
+            /** Peoples */
+            peoples: components["schemas"]["EventPeopleOutSchema"][];
             /** ID */
             id?: number | null;
             /** Название спектакля */
@@ -107,6 +126,29 @@ export interface components {
              * @default false
              */
             has_intermission: boolean;
+        };
+        /** EventPeopleOutSchema */
+        EventPeopleOutSchema: {
+            people: components["schemas"]["PeopleBoundSchema"];
+            /** ID */
+            id?: number | null;
+            /**
+             * Тег
+             * @description Раздел в карточке спектакля, в котором будет отображаться участник
+             */
+            tag: string;
+            /**
+             * Роль участника в спектакле
+             * @description Если участник - актер: указать имя персонажа. Если участник выполняет другую роль, например, художник - нужно указать "художник"
+             */
+            role: string;
+        };
+        /** PeopleBoundSchema */
+        PeopleBoundSchema: {
+            /** ID */
+            id?: number | null;
+            /** Имя, фамилия */
+            name: string;
         };
     };
     responses: never;
@@ -157,6 +199,28 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["EventOutSchema"];
+                };
+            };
+        };
+    };
+    people_api_get_event_people_list_by_event_id: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                event_id: number;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EventPeopleOutSchema"][];
                 };
             };
         };

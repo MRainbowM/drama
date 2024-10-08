@@ -3,7 +3,7 @@ import EventPreview from '../components/EventPreview/EventPreview'
 import '../styles/page.scss'
 
 export default async function MainPage() {
-    const response = await apiClient.GET('/api/event_show/list')
+    const response = await apiClient.GET('/api/event/event_show/list')
 
     if (response.error) {
         throw new Error('qweqwe')
