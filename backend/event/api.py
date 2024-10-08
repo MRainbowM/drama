@@ -2,15 +2,16 @@ from typing import List
 
 from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
-from ninja import NinjaAPI, Query
+from ninja import Query
+from ninja import Router
 
 from event.models import EventShow, Event
 from .schemes import EventShowFilterSchema, EventShowOutSchema, EventOutSchema
 
-api = NinjaAPI()
+router = Router()
 
 
-@api.get(
+@router.get(
     '/event_show/list',
     response=List[EventShowOutSchema],
     tags=[_('Афиша')],
@@ -23,7 +24,7 @@ def get_event_show_list(request, filters: EventShowFilterSchema = Query(...)):
     return event_show_list
 
 
-@api.get(
+@router.get(
     '/event/{slug}',
     response=EventOutSchema,
     tags=[_('Спектакли')],

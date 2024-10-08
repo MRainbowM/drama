@@ -1,12 +1,13 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import include, path
-from event.api import api as event_api
+from django.urls import path
+
+from .api import api
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', event_api.urls),
+    path('api/', api.urls),
 ]
 
 if settings.DEBUG:
