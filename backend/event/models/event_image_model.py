@@ -10,7 +10,7 @@ class EventImage(DatesAbstract):
     """Фотографии спектакля"""
 
     image = models.ImageField(_('Фото'), upload_to=event_image_path)
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, verbose_name=_('Спектакль'))
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, verbose_name=_('Спектакль'), related_name='images')
 
     class Meta:
         verbose_name = _('Фотография спектакля')

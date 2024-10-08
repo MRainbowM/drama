@@ -2,11 +2,13 @@ from charset_normalizer.md import List
 from ninja import ModelSchema
 
 from people.schemes import EventPeopleOutSchema
+from .event_image_schemes import EventImageBoundSchema
 from ..models import Event
 
 
 class EventOutSchema(ModelSchema):
     peoples: List[EventPeopleOutSchema]
+    images: List[EventImageBoundSchema]
 
     class Config:
         model = Event
@@ -19,6 +21,10 @@ class EventOutSchema(ModelSchema):
     @staticmethod
     def resolve_peoples(obj):
         return obj.peoples.all()
+
+    @staticmethod
+    def resolve_images(obj):
+        return obj.images.all()
 
 
 class EventBoundSchema(ModelSchema):
