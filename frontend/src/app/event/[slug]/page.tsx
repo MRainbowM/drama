@@ -1,6 +1,4 @@
-import path from 'path'
 import { apiClient } from '../../../api/client'
-// import EventShow from '../components/EventShow/EventShow'
 import EventDetail from "../../../components/EventDetail/EventDetail"
 
 interface EventPageProps {
