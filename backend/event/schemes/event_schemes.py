@@ -1,9 +1,9 @@
 from charset_normalizer.md import List
 from ninja import ModelSchema
-
 from people.schemes import EventPeopleOutSchema
-from .event_image_schemes import EventImageBoundSchema
+
 from ..models import Event
+from .event_image_schemes import EventImageBoundSchema
 
 
 class EventOutSchema(ModelSchema):
@@ -20,7 +20,7 @@ class EventOutSchema(ModelSchema):
 
     @staticmethod
     def resolve_peoples(obj):
-        return obj.peoples.all()
+        return obj.peoples.all().order_by('sort')
 
     @staticmethod
     def resolve_images(obj):

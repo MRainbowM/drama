@@ -9,4 +9,4 @@ class EventPeopleOutSchema(ModelSchema):
 
     class Config:
         model = EventPeople
-        model_fields = ['id', 'tag', 'role']
+        model_fields = ['id', 'tag', 'role', 'sort']

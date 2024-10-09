@@ -27,6 +27,8 @@ class EventPeople(DatesAbstract):
                   'Если участник выполняет другую роль, например, художник - нужно указать "художник"'
     )
 
+    sort = models.IntegerField(_('Сортировка'), default=0)
+
     class Meta:
         verbose_name = _('Участник спектакля')
         verbose_name_plural = _('Участники спектакля')
