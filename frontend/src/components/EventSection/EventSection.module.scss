@@ -39,17 +39,37 @@
     font-size: var(--h3-font-size);
 }
 
+.accordion {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 250ms grid-template-rows ease;
+    // overflow: hidden;
+}
+    
 .content {
-    height: 0;
     overflow: hidden;
-    padding-top: 0;
-    transition: 0.2s;
 
+    // height: 0;
+    
+    // padding-top: 0;
+    // transition: 0.5s;
+    // padding-top: var(--padding-base);
+
+    // display: none;
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: var(--padding-base);
+    }
+    // padding-top: var(--padding-base);
 }
 
-.content.open {
-    height: 100%;
-    padding-top: var(--padding-base);
+.accordion.open {
+    // height: 100%;
+
+    // display: block;
+    grid-template-rows: 1fr;
 }
 
 @media (max-width: 1023px) {

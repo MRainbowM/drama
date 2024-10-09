@@ -6,15 +6,14 @@ import Arrow from 'public/static/images/arrow.svg'
 
 interface EventSectionProps {
     title: string,
-    content: {}
+    children: React.ReactNode
 }
 
 
-export default function EventSection({ title, content }: EventSectionProps) {
-    const [isOpen, setOpen] = useState(false)
-
+export default function EventSection({ title, children }: EventSectionProps) {
+    const [isOpen, setOpen] = useState(false);
     const onClick = () => {
-        setOpen((state) => !state)
+        setOpen((state) => !state);
     }
 
     return (
@@ -25,8 +24,11 @@ export default function EventSection({ title, content }: EventSectionProps) {
                 </div>
                 <h3 className={styles.title}>{title}</h3>
             </div>
-            <div className={clsx(styles.content, { [styles.open]: isOpen })}>
-                <>{content}</>
+
+            <div className={clsx(styles.accordion, { [styles.open]: isOpen })}>
+                <div className={styles.content} >
+                    {children}
+                </div>
             </div>
         </div>
     )
