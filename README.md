@@ -1,4 +1,4 @@
-## Запуск проекта
+# Запуск проекта
 
 ### Сборка контейнера
 ```sh
@@ -43,6 +43,10 @@ docker-compose exec django-drama python3 manage.py startapp {app_name}
 ```sh
 npm run dev
 ```
+
+# Разработка
+
+## Frontend
 
 ### Генерация схем данных api из сваггера
 ```sh
