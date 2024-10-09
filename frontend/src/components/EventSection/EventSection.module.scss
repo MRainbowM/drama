@@ -1,0 +1,58 @@
+.root {
+    display: block;
+}
+
+.section {
+    padding: var(--padding-base) 0;
+    border-bottom: solid 1px var(--color-white);
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr var(--header-width-base) 1fr;
+    transition: 0.2s;
+}
+
+.header:hover {
+    color: var(--color-red);
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: var(--padding-base);
+}
+
+.toggle>svg {
+    height: 24px;
+    width: 24px;
+    transform: rotate(90deg);
+}
+
+.toggle>svg.open {
+    transform: rotate(-90deg);
+}
+
+
+.toggleLine {
+    width: 3px;
+    height: 29px;
+    background-color: var(--color-white);
+}
+
+.toggleLine:first-child {
+    transform: rotate(-45deg);
+}
+
+.toggleLine:last-child {
+    transform: rotate(45deg);
+    margin-left: 16px;
+}
+
+.title {
+    grid-column: span 2;
+    text-transform: uppercase;
+    font-size: var(--h3-font-size);
+    font-weight: bold;
+}
