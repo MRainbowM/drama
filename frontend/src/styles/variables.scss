@@ -40,14 +40,14 @@
 
     --text-line-height: 30px;
 
-    --row--padding-tb-base: 50px;
+    --padding-base: 50px;
 
     @media (max-width: 1023px) {
-        --row--padding-tb-base: 35px;
+        --padding-base: 35px;
     }
 
     @media (max-width: 500px) {
-        --row--padding-tb-base: 20px;
+        --padding-base: 20px;
     }
 
 }

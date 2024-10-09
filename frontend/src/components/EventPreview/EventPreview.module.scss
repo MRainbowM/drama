@@ -4,7 +4,7 @@
     gap: 20px;
     width: 100%;
     border-top: solid 1px var(--color-white);
-    padding: var(--row--padding-tb-base) 0;
+    padding: var(--padding-base) 0;
 }
 
 .eventDate,
@@ -53,7 +53,7 @@
 
     .event {
         grid-template-columns: 1fr 1fr;
-        padding: var(--row--padding-tb-base) 0;
+        padding: var(--padding-base) 0;
         gap: 15px;
     }
 
@@ -68,7 +68,7 @@
 
     .event {
         grid-template-columns: 1fr;
-        padding: var(--row--padding-tb-base) 0;
+        padding: var(--padding-base) 0;
     }
 
     .eventDate {

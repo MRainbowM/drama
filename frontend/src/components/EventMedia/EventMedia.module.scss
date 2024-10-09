@@ -1,0 +1,20 @@
+.eventMediaWrap {
+    width: 100%;
+    overflow: hidden;
+}
+
+.eventMediaList {
+    display: flex;
+    align-items: center;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--padding-base);
+}
+
+.eventMediaItem { 
+    width: auto;
+    height: 500px;
+    max-height: calc((100vw - 30px) / 1.5);
+    scroll-snap-stop: always;
+    scroll-snap-align: center;
+}

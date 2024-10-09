@@ -1,7 +1,7 @@
 .eventPeopleRow {
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--row--padding-tb-base);
+    margin-bottom: var(--padding-base);
 }
 
 .eventPeopleRole {
@@ -10,4 +10,5 @@
 
 .eventPeopleName {
     text-transform: uppercase;
+    font-weight: bold;
 }

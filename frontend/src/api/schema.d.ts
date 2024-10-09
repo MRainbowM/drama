@@ -38,23 +38,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/people/event_people/list/{event_id}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** Получить список участников спектакля */
-        get: operations["people_api_get_event_people_list_by_event_id"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -94,10 +77,19 @@ export interface components {
              */
             start_at: string;
         };
+        /** EventImageBoundSchema */
+        EventImageBoundSchema: {
+            /** ID */
+            id?: number | null;
+            /** Фото */
+            image: string;
+        };
         /** EventOutSchema */
         EventOutSchema: {
             /** Peoples */
             peoples: components["schemas"]["EventPeopleOutSchema"][];
+            /** Images */
+            images: components["schemas"]["EventImageBoundSchema"][];
             /** ID */
             id?: number | null;
             /** Название спектакля */
@@ -199,28 +191,6 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["EventOutSchema"];
-                };
-            };
-        };
-    };
-    people_api_get_event_people_list_by_event_id: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                event_id: number;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description OK */
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["EventPeopleOutSchema"][];
                 };
             };
         };

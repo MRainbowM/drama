@@ -2,6 +2,7 @@ import styles from './EventDetail.module.scss'
 import Image from 'next/image'
 import { components } from '../../api/schema'
 import EventPeople from '../EventPeople/EventPeople';
+import EventMedia from '../EventMedia/EventMedia';
 
 interface EventDetailProps {
     data: components['schemas']['EventOutSchema']
@@ -14,7 +15,6 @@ export default function EventDetail({ data }: EventDetailProps) {
     const duration = data.duration.slice(1);
 
     const peoplesGroupTag = Object.groupBy(data.peoples, ({ tag }) => tag);
-
 
     return (<>
         <div className={styles.eventHeader}>
@@ -41,7 +41,18 @@ export default function EventDetail({ data }: EventDetailProps) {
             </div>
         </div>
 
-        <h3 className={styles.eventSectionTitle}>Авторы</h3>
+        <div className={styles.eventSection}>
+            <EventMedia data={data.images}/>
+
+        </div>
+
+        <div>
+            <div className={styles.toggleTitle} id='toggleAuthor'>
+                <div className={styles.toggleTitleLine}></div>
+                <div className={styles.toggleTitleLine}></div>
+            </div>
+            <h3 className={styles.eventSectionTitle}>Авторы</h3>
+        </div>
 
         <div className={styles.eventSection}>
             <div className={styles.eventSectionText}>
