@@ -1,0 +1,28 @@
+import styles from './Main.module.scss'
+import Round from 'public/static/images/round.svg'
+import Image from 'next/image'
+
+export default function Main() {
+
+    return (
+        <div className={styles.root} >
+            <h1>
+                <span>Новая</span>
+                <span>Драма</span>
+            </h1>
+            
+            <div className={styles.mainImage}>
+                <Image
+                    className={styles.eventMediaItem}
+                    src={'/media/event_image/2024/10/09/main.jpeg'}// TODO
+                    width={500}
+                    height={500}
+                    alt='Новая драма' 
+                />
+            </div>
+
+            <Round className={styles.round} />
+
+        </div>
+    )
+}
