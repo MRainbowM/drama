@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     margin-bottom: var(--padding-base);
+    font-size: var(--text-font-size);
+    line-height: var(--text-line-height);
 }
 
 .eventPeopleRole {

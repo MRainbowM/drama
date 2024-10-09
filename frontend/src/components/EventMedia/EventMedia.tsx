@@ -11,16 +11,16 @@ export default function EventMedia({ data }: EventMediaProps) {
     return (
         <div className={styles.eventMediaWrap}>
             <div className={styles.eventMediaList}>
-                {[data.map(item => (
-
+                {data.map(item => (
                     <Image
+                        key={item.id}
                         className={styles.eventMediaItem}
                         src={item.image}
                         width={500}
                         height={500}
                         alt='wqe' // TODO
                     />
-                ))]}
+                ))}
             </div>
         </div>
     )

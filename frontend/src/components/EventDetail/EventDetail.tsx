@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { components } from '../../api/schema'
 import EventPeople from '../EventPeople/EventPeople';
 import EventMedia from '../EventMedia/EventMedia';
+import EventSection from '../EventSection/EventSection';
 
 interface EventDetailProps {
     data: components['schemas']['EventOutSchema']
@@ -33,44 +34,32 @@ export default function EventDetail({ data }: EventDetailProps) {
             <span>{duration}, {intermission}</span>
         </div>
 
-        <div className={styles.eventSection}>
-            <div className={styles.eventSectionText}>
+        <div className={styles.eventDescription}>
+            <div className={styles.eventDescriptionText}>
                 {data.description}
                 <br /><br />
                 Премьера: 30 ноября 2023 года
             </div>
         </div>
 
-        <div className={styles.eventSection}>
-            <EventMedia data={data.images}/>
+        <EventSection
+            title='Галерея'
+            content={<EventMedia data={data.images} />}
+        />
 
-        </div>
+        <EventSection
+            title='Авторы'
+            content={peoplesGroupTag['author'].map(item => (
+                <EventPeople key={item.id} data={item} />
+            ))}
+        />
 
-        <div>
-            <div className={styles.toggleTitle} id='toggleAuthor'>
-                <div className={styles.toggleTitleLine}></div>
-                <div className={styles.toggleTitleLine}></div>
-            </div>
-            <h3 className={styles.eventSectionTitle}>Авторы</h3>
-        </div>
-
-        <div className={styles.eventSection}>
-            <div className={styles.eventSectionText}>
-                {peoplesGroupTag['author'].map(item => (
-                    <EventPeople key={item.id} data={item} />
-                ))}
-            </div>
-        </div>
-
-        <h3 className={styles.eventSectionTitle}>Актеры</h3>
-
-        <div className={styles.eventSection}>
-            <div className={styles.eventSectionText}>
-                {peoplesGroupTag['actor'].map(item => (
-                    <EventPeople key={item.id} data={item} />
-                ))}
-            </div>
-        </div>
+        <EventSection
+            title='Актеры'
+            content={peoplesGroupTag['actor'].map(item => (
+                <EventPeople key={item.id} data={item} />
+            ))}
+        />
 
     </>)
 }
