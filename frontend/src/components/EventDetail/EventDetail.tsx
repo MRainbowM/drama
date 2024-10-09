@@ -42,21 +42,33 @@ export default function EventDetail({ data }: EventDetailProps) {
             </div>
         </div>
 
-        <EventSection title='Галерея' >
-            <EventMedia data={data.images} />
-        </EventSection>
+        {
+            data.images && data.images.length > 0 ? (
+                <EventSection title='Галерея' >
+                    <EventMedia data={data.images} />
+                </EventSection>
+            ) : (<></>)
+        }
 
-        <EventSection title='Авторы'>
-            {peoplesGroupTag['author'].map(item => (
-                <EventPeople key={item.id} data={item} />
-            ))}
-        </EventSection>
+        {
+            peoplesGroupTag['author'] ? (
+                <EventSection title='Авторы'>
+                    {peoplesGroupTag['author'].map(item => (
+                        <EventPeople key={item.id} data={item} />
+                    ))}
+                </EventSection>
+            ) : (<></>)
+        }
 
-        <EventSection title='Актеры'>
-            {peoplesGroupTag['actor'].map(item => (
-                <EventPeople key={item.id} data={item} />
-            ))}
-        </EventSection>
+        {
+            peoplesGroupTag['actor'] ? (
+                <EventSection title='Актеры'>
+                    {peoplesGroupTag['actor'].map(item => (
+                        <EventPeople key={item.id} data={item} />
+                    ))}
+                </EventSection>
+            ) : (<></>)
+        }
 
     </>)
 }
