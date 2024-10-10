@@ -10,6 +10,7 @@
     padding: 10px 15px;
     font-weight: bold;
     cursor: pointer;
+    user-select: none;
 }
 
 .button:not(.select) {
