@@ -13,11 +13,13 @@ interface EventDetailProps {
 export default function EventDetail({ data }: EventDetailProps) {
     const intermission = data.has_intermission === true ? 'с антрактом' : 'без антрактов';
     const minAgeLimit = data.min_age_limit > 0 ? `, ${data.min_age_limit}+` : '';
-    const duration = data.duration.slice(1);
+    const duration = new Intl.DateTimeFormat('ru-RU', {
+        hour: "numeric",
+        minute: "numeric"
+    }).format(  Date.parse('01 Jan 1970 ' + data.duration)   );
     const premiereAt = new Intl.DateTimeFormat('ru-RU', {
         dateStyle: 'long'
-    }).format(new Date(data.premiere_at))
-
+    }).format(new Date(data.premiere_at));
     const peoplesGroupTag = Object.groupBy(data.peoples, ({ tag }) => tag);
 
     return (<>
