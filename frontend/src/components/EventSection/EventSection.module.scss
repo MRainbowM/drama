@@ -37,39 +37,28 @@
     grid-column: span 2;
     text-transform: uppercase;
     font-size: var(--h3-font-size);
+    user-select: none;
 }
 
 .accordion {
     display: grid;
     grid-template-rows: 0fr;
     transition: 250ms grid-template-rows ease;
-    // overflow: hidden;
 }
-    
+
+.accordion.open {
+    grid-template-rows: 1fr;
+}
+
 .content {
     overflow: hidden;
 
-    // height: 0;
-    
-    // padding-top: 0;
-    // transition: 0.5s;
-    // padding-top: var(--padding-base);
-
-    // display: none;
     &::before {
         content: '';
         display: block;
         width: 100%;
         height: var(--padding-base);
     }
-    // padding-top: var(--padding-base);
-}
-
-.accordion.open {
-    // height: 100%;
-
-    // display: block;
-    grid-template-rows: 1fr;
 }
 
 @media (max-width: 1023px) {
