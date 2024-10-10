@@ -4,45 +4,41 @@ import styles from './EventPreview.module.scss'
 import Image from 'next/image'
 
 interface EventPreviewProps {
-    data: components['schemas']['EventShowOutSchema']
+    event: components['schemas']['EventBoundSchema'],
+    is_premiere: boolean,
+    tag: string
 }
 
-export default function EventPreview({ data }: EventPreviewProps) {
-    let eventDate = new Intl.DateTimeFormat('ru-RU', {
-        day: 'numeric',
-        month: 'short',
-        hour: 'numeric',
-        minute: 'numeric',
-    }).format(new Date(data.start_at))
-    eventDate = eventDate.replace('.', '')
-
+export default function EventPreview(
+    {  event, is_premiere, tag }: EventPreviewProps
+) {
     return (
         <div className={styles.event}>
             <div className={styles.date}>
-                <span>{eventDate}</span>
+                <span>{tag}</span>
             </div>
 
             <div className={styles.previewCover}>
                 <Image
-                    src={data.event.preview_cover}
+                    src={event.preview_cover}
                     width={500}
                     height={500}
-                    alt={data.event.name}
+                    alt={event.name}
                 />
             </div>
 
             <div className={styles.info}>
                 <Link
                     className={styles.title}
-                    href={`/event/${data.event.slug}`}
+                    href={`/event/${event.slug}`}
                 >
-                    <span>{data.event.name}</span>
+                    <span>{event.name}</span>
                 </Link>
 
-                <span>{data.event.short_description}</span>
+                <span>{event.short_description}</span>
 
                 {
-                    data.is_premiere ? (
+                    is_premiere ? (
                         <span className={styles.premier}>премьера</span>
                     ) : (<></>)
                 }

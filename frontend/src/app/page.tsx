@@ -1,12 +1,13 @@
 import { apiClient } from '../api/client'
-import EventPreview from '../components/EventPreview/EventPreview'
+import EventListSection from '../components/EventListSection/EventListSection';
 import MainSection from '../components/MainSection/MainSection'
 import '../styles/page.scss'
 
 export default async function MainPage() {
     const currentDate = new Date();
 
-    const response = await apiClient.GET('/api/event/event_show/list', {
+    // Спектакли в афише
+    const responseEventsByDate = await apiClient.GET('/api/event/event_show/list', {
         params: {
             query: {
                 is_enable: true,
@@ -15,16 +16,30 @@ export default async function MainPage() {
         }
     });
 
-    if (response.error) {
-        console.log(response.error);
+    if (responseEventsByDate.error) {
+        console.log(responseEventsByDate.error);
+        throw new Error('error'); //TODO
+    }
+
+    // Репертуар
+    const responseEventsByAbc = await apiClient.GET('/api/event/event/list', {
+        params: {
+            query: {
+                is_enable: true
+            }
+        }
+    });
+
+    if (responseEventsByAbc.error) {
+        console.log(responseEventsByAbc.error);
         throw new Error('error'); //TODO
     }
 
     return (<>
         <MainSection />
-        <h2>Афиша</h2>
-        {response.data.map(item => (
-            <EventPreview key={item.id} data={item} />
-        ))}
+        <EventListSection
+            eventsByAbc={responseEventsByAbc.data}
+            eventsByDate={responseEventsByDate.data}
+        />
     </>);
 }

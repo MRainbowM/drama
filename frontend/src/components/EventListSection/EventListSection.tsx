@@ -1,24 +1,24 @@
 'use client'
 import styles from './EventListSection.module.scss'
 import { components } from '../../api/schema'
-import Image from 'next/image'
 import { useState } from "react"
 import clsx from "clsx"
-import { useParams } from 'next/navigation'
+
+import EventPreview from '../EventPreview/EventPreview'
 
 interface EventListSectionProps {
-    data: any
-    // data: components['schemas']['EventImageBoundSchema'][]
+    eventsByAbc: components['schemas']['EventBoundSchema'][],
+    eventsByDate: components['schemas']['EventShowOutSchema'][],
 }
 
-export default function EventListSection({ data }: EventListSectionProps) {
+export default function EventListSection({ eventsByAbc, eventsByDate }: EventListSectionProps) {
     const [filterByAbсState, changeFilter] = useState(false);
 
     const onClickByAbc = () => {
-        changeFilter((filterByAbсState) => true);
+        changeFilter(() => true);
     }
     const onClickByDate = () => {
-        changeFilter((filterByAbсState) => false);
+        changeFilter(() => false);
     }
 
     return (
@@ -38,6 +38,39 @@ export default function EventListSection({ data }: EventListSectionProps) {
                     <span>по алфавиту</span>
                 </div>
             </div >
+
+            {
+                filterByAbсState ? (
+                    eventsByAbc ? (
+                        eventsByAbc.map(item => (
+                            <EventPreview
+                                key={item.id}
+                                event={item}
+                                is_premiere={false}
+                                tag={item.name[0]}
+                            />))
+                    ) : (<></>)
+                ) : (
+                    eventsByDate ? (
+                        eventsByDate.map(item => (
+                            <EventPreview
+                                key={item.id}
+                                event={item.event}
+                                is_premiere={item.is_premiere}
+                                tag={
+                                    new Intl.DateTimeFormat('ru-RU', {
+                                        day: 'numeric',
+                                        month: 'short',
+                                        hour: 'numeric',
+                                        minute: 'numeric',
+                                    }).format(
+                                        new Date(item.start_at)
+                                    ).replace('.', '')
+                                }
+                            />))
+                    ) : (<></>)
+                )
+            }
         </>
     );
 }

@@ -21,6 +21,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/event/event/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Получить список всех спектаклей: репертуар */
+        get: operations["event_api_get_event_list"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/event/event/{slug}": {
         parameters: {
             query?: never;
@@ -85,6 +102,11 @@ export interface components {
             start_at: string;
             /** Is Premiere */
             is_premiere: boolean;
+        };
+        /** EventFilterSchema */
+        EventFilterSchema: {
+            /** Is Enable */
+            is_enable?: boolean | null;
         };
         /** EventImageBoundSchema */
         EventImageBoundSchema: {
@@ -198,6 +220,28 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["EventShowOutSchema"][];
+                };
+            };
+        };
+    };
+    event_api_get_event_list: {
+        parameters: {
+            query?: {
+                is_enable?: boolean | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["EventBoundSchema"][];
                 };
             };
         };

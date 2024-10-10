@@ -2,10 +2,9 @@
     width: 100%;
     display: flex;
     margin: 20px 0;
-
 }
 
-.button{
+.button {
     text-transform: uppercase;
     background-color: var(--color-gray);
     padding: 10px 15px;
@@ -13,10 +12,10 @@
     cursor: pointer;
 }
 
-.button.select{
+.button.select {
     background-color: var(--color-black);
 }
 
-.button:not(.select):hover{
+.button:not(.select):hover {
     background-color: var(--color-red);
 }
