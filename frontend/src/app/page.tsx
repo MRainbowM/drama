@@ -1,6 +1,6 @@
 import { apiClient } from '../api/client'
 import EventPreview from '../components/EventPreview/EventPreview'
-import Main from '../components/Main/Main'
+import MainSection from '../components/MainSection/MainSection'
 import '../styles/page.scss'
 
 export default async function MainPage() {
@@ -11,7 +11,7 @@ export default async function MainPage() {
     }
 
     return (<>
-        <Main/>
+        <MainSection/>
         <h2>Афиша</h2>
         {response.data.map(item => (
             <EventPreview key={item.id} data={item} />
