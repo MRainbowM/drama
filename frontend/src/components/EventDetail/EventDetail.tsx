@@ -14,6 +14,9 @@ export default function EventDetail({ data }: EventDetailProps) {
     const intermission = data.has_intermission === true ? 'с антрактом' : 'без антрактов';
     const minAgeLimit = data.min_age_limit > 0 ? `, ${data.min_age_limit}+` : '';
     const duration = data.duration.slice(1);
+    const premiereAt = new Intl.DateTimeFormat('ru-RU', {
+        dateStyle: 'long'
+    }).format(new Date(data.premiere_at))
 
     const peoplesGroupTag = Object.groupBy(data.peoples, ({ tag }) => tag);
 
@@ -30,16 +33,17 @@ export default function EventDetail({ data }: EventDetailProps) {
         </div>
 
         <div className={styles.eventSubHeader}>
-            <span className={styles.eventShortDescription}>{data.short_description}{minAgeLimit}</span>
+            <span className={styles.eventShortDescription}>
+                {data.short_description}{minAgeLimit}
+            </span>
             <span>{duration}, {intermission}</span>
         </div>
 
         <div className={styles.eventDescription}>
             <div className={styles.eventDescriptionText}>
                 {data.description}
-                <br /><br />
-                Премьера: 30 ноября 2023 года
             </div>
+            <span className={styles.premiereAt}>Премьера: {premiereAt}</span>
         </div>
 
         {

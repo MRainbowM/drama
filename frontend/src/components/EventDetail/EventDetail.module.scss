@@ -39,14 +39,20 @@
 }
 
 .eventDescription {
+    display: flex;
+    flex-direction: column;
     padding: var(--padding-base) 0;
     border-bottom: solid 1px var(--color-white);
+    font-size: var(--text-font-size);
+    line-height: var(--text-line-height);
 }
 
 .eventDescriptionText {
     margin-left: calc((100% - var(--header-width-base)) / 2);
-    font-size: var(--text-font-size);
-    line-height: var(--text-line-height);
+}
+
+.premiereAt {
+    margin-top: var(--padding-base);
 }
 
 
