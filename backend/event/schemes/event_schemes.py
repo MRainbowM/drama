@@ -15,7 +15,7 @@ class EventOutSchema(ModelSchema):
 
         model_fields = [
             'id', 'name', 'slug', 'short_description', 'cover', 'min_age_limit',
-            'description', 'duration', 'has_intermission',
+            'description', 'duration', 'has_intermission', 'premiere_at',
         ]
 
     @staticmethod
