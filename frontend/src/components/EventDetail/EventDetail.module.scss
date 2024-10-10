@@ -47,7 +47,8 @@
     line-height: var(--text-line-height);
 }
 
-.eventDescriptionText {
+.eventDescriptionText,
+.premiereAt {
     margin-left: calc((100% - var(--header-width-base)) / 2);
 }
 
@@ -58,8 +59,9 @@
 
 @media (max-width: 1023px) {
 
-    .eventDescriptionText {
-        margin: 0;
+    .eventDescriptionText,
+    .premiereAt {
+        margin-left: 0;
     }
 
 }
