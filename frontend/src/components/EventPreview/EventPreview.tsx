@@ -18,11 +18,11 @@ export default function EventPreview({ data }: EventPreviewProps) {
 
     return (
         <div className={styles.event}>
-            <div className={styles.eventDate}>
+            <div className={styles.date}>
                 <span>{eventDate}</span>
             </div>
 
-            <div className={styles.eventCover}>
+            <div className={styles.previewCover}>
                 <Image
                     src={data.event.preview_cover}
                     width={500}
@@ -31,16 +31,22 @@ export default function EventPreview({ data }: EventPreviewProps) {
                 />
             </div>
 
-            <div className={styles.eventInfo}>
+            <div className={styles.info}>
                 <Link
-                    className={styles.eventTitle}
+                    className={styles.title}
                     href={`/event/${data.event.slug}`}
                 >
                     <span>{data.event.name}</span>
                 </Link>
-                <div>
-                    <span>{data.event.short_description}</span>
-                </div>
+
+                <span>{data.event.short_description}</span>
+
+                {
+                    data.is_premiere ? (
+                        <span className={styles.premier}>премьера</span>
+                    ) : (<></>)
+                }
+
             </div>
         </div>
     )

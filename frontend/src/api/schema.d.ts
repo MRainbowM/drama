@@ -83,6 +83,8 @@ export interface components {
              * Format: date-time
              */
             start_at: string;
+            /** Is Premiere */
+            is_premiere: boolean;
         };
         /** EventImageBoundSchema */
         EventImageBoundSchema: {

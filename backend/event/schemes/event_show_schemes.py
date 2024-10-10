@@ -10,6 +10,7 @@ class EventShowOutSchema(Schema):
     id: int
     event: EventBoundSchema
     start_at: datetime
+    is_premiere: bool
 
 
 class EventShowFilterSchema(FilterSchema):
