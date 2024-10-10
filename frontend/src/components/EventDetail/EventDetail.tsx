@@ -11,7 +11,7 @@ interface EventDetailProps {
 
 
 export default function EventDetail({ data }: EventDetailProps) {
-    const intermission = data.has_intermission === true ? 'с антрактом' : 'без антрактов';
+    const intermission = data.has_intermission === true ? 'с антрактом' : 'без антракта';
     const minAgeLimit = data.min_age_limit > 0 ? `, ${data.min_age_limit}+` : '';
     const duration = new Intl.DateTimeFormat('ru-RU', {
         hour: "numeric",
