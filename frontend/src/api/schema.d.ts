@@ -44,8 +44,12 @@ export interface components {
     schemas: {
         /** EventShowFilterSchema */
         EventShowFilterSchema: {
-            /** Start At */
-            start_at?: string | null;
+            /** Start At  Gte */
+            start_at__gte?: string | null;
+            /** Start At  Lte */
+            start_at__lte?: string | null;
+            /** Is Enable */
+            is_enable?: boolean | null;
         };
         /** EventBoundSchema */
         EventBoundSchema: {
@@ -57,8 +61,11 @@ export interface components {
             slug: string;
             /** Краткое описание */
             short_description: string;
-            /** Обложка */
-            cover: string;
+            /**
+             * Обложка в афише
+             * @description Обложка спектакля в афише на главной странице
+             */
+            preview_cover: string;
             /**
              * Возрастное ограничение
              * @description Минимальный разрешенный возраст зрителя, например, 18 лет
@@ -98,8 +105,16 @@ export interface components {
             slug: string;
             /** Краткое описание */
             short_description: string;
-            /** Обложка */
+            /**
+             * Обложка спектакля
+             * @description Горизонтальное изображение в карточке спектакля
+             */
             cover: string;
+            /**
+             * Обложка в афише
+             * @description Обложка спектакля в афише на главной странице
+             */
+            preview_cover: string;
             /**
              * Возрастное ограничение
              * @description Минимальный разрешенный возраст зрителя, например, 18 лет
@@ -118,6 +133,11 @@ export interface components {
              * @default false
              */
             has_intermission: boolean;
+            /**
+             * Дата премьеры
+             * Format: date
+             */
+            premiere_at: string;
         };
         /** EventPeopleOutSchema */
         EventPeopleOutSchema: {
@@ -134,6 +154,11 @@ export interface components {
              * @description Если участник - актер: указать имя персонажа. Если участник выполняет другую роль, например, художник - нужно указать "художник"
              */
             role: string;
+            /**
+             * Сортировка
+             * @default 0
+             */
+            sort: number;
         };
         /** PeopleBoundSchema */
         PeopleBoundSchema: {
@@ -154,7 +179,9 @@ export interface operations {
     event_api_get_event_show_list: {
         parameters: {
             query?: {
-                start_at?: string | null;
+                start_at__gte?: string | null;
+                start_at__lte?: string | null;
+                is_enable?: boolean | null;
             };
             header?: never;
             path?: never;
