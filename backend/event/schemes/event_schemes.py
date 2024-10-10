@@ -1,5 +1,7 @@
+from typing import Optional
+
 from charset_normalizer.md import List
-from ninja import ModelSchema
+from ninja import ModelSchema, FilterSchema, Field
 
 from people.schemes import EventPeopleOutSchema
 from .event_image_schemes import EventImageBoundSchema
@@ -33,3 +35,7 @@ class EventBoundSchema(ModelSchema):
         model_fields = [
             'id', 'name', 'slug', 'short_description', 'preview_cover', 'min_age_limit',
         ]
+
+
+class EventFilterSchema(FilterSchema):
+    is_enable: Optional[bool] = Field(None, q='is_enable')
