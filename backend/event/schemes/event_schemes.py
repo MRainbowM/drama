@@ -1,9 +1,9 @@
 from charset_normalizer.md import List
 from ninja import ModelSchema
-from people.schemes import EventPeopleOutSchema
 
-from ..models import Event
+from people.schemes import EventPeopleOutSchema
 from .event_image_schemes import EventImageBoundSchema
+from ..models import Event
 
 
 class EventOutSchema(ModelSchema):
@@ -14,7 +14,7 @@ class EventOutSchema(ModelSchema):
         model = Event
 
         model_fields = [
-            'id', 'name', 'slug', 'short_description', 'cover', 'min_age_limit',
+            'id', 'name', 'slug', 'short_description', 'cover', 'preview_cover', 'min_age_limit',
             'description', 'duration', 'has_intermission', 'premiere_at',
         ]
 
@@ -31,5 +31,5 @@ class EventBoundSchema(ModelSchema):
     class Config:
         model = Event
         model_fields = [
-            'id', 'name', 'slug', 'short_description', 'cover', 'min_age_limit',
+            'id', 'name', 'slug', 'short_description', 'preview_cover', 'min_age_limit',
         ]

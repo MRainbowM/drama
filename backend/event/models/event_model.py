@@ -13,7 +13,16 @@ class Event(DatesAbstract):
     short_description = models.TextField(_('Краткое описание'))
     description = models.TextField(_('Подробное описание'))
     is_enable = models.BooleanField(_('Показывать в репертуаре'), default=True)
-    cover = models.ImageField(_('Обложка'), upload_to=event_cover_path)
+    cover = models.ImageField(
+        _('Обложка спектакля'),
+        upload_to=event_cover_path,
+        help_text='Горизонтальное изображение в карточке спектакля'
+    )
+    preview_cover = models.ImageField(
+        _('Обложка в афише'),
+        upload_to=event_cover_path,
+        help_text='Обложка спектакля в афише на главной странице'
+    )
     min_age_limit = models.IntegerField(
         _('Возрастное ограничение'),
         help_text='Минимальный разрешенный возраст зрителя, например, 18 лет',

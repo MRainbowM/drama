@@ -24,7 +24,7 @@ export default function EventPreview({ data }: EventPreviewProps) {
 
             <div className={styles.eventCover}>
                 <Image
-                    src={data.event.cover}
+                    src={data.event.preview_cover}
                     width={500}
                     height={500}
                     alt={data.event.name}
