@@ -19,7 +19,7 @@ router = Router()
 )
 def get_event_show_list(request, filters: EventShowFilterSchema = Query(...)):
     event_show_list = EventShow.objects.all()
-    event_show_list = filters.filter(event_show_list)
+    event_show_list = filters.filter(event_show_list).order_by('start_at')
 
     return event_show_list
 
