@@ -10,13 +10,13 @@
 .date,
 .title {
     text-transform: uppercase;
-    opacity: var(--text-opacity);
     font-weight: bold;
 }
 
 .date {
     color: var(--color-red);
     font-size: 40px;
+    opacity: var(--text-opacity);
 }
 
 .date>span {
@@ -28,6 +28,11 @@
     width: 100%;
     margin-bottom: 10px;
     font-size: var(--h3-font-size);
+    cursor: pointer;
+}
+
+.title:hover {
+    color: var(--color-red);
 }
 
 .previewCover {
@@ -50,7 +55,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     font-size: var(--text-font-size);
-    opacity: var(--text-opacity);
+    // opacity: var(--text-opacity);
 }
 
 .premier {
