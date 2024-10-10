@@ -1,0 +1,22 @@
+.filters {
+    width: 100%;
+    display: flex;
+    margin: 20px 0;
+
+}
+
+.button{
+    text-transform: uppercase;
+    background-color: var(--color-gray);
+    padding: 10px 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button.select{
+    background-color: var(--color-black);
+}
+
+.button:not(.select):hover{
+    background-color: var(--color-red);
+}
