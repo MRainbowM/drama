@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import HeaderBurger from '../HeaderBurger/HeaderBurger'
 import Menu from '../Menu/Menu'
 import styles from './Header.module.scss'
@@ -8,7 +9,10 @@ export default function Header() {
     return (
         <>
             <div className={styles.header}>
-                <Logo className={styles.logo} />
+                <Link href={'/'}>
+                    <Logo className={styles.logo} />
+                </Link>
+
                 <HeaderBurger>
                     <Menu />
                 </HeaderBurger>

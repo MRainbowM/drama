@@ -21,3 +21,7 @@
     text-transform: uppercase;
     font-size: 40px;
 }
+
+.menu>ul>li>a:hover{
+    color: var(--color-red);
+}

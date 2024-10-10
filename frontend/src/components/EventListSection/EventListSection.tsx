@@ -23,7 +23,7 @@ export default function EventListSection({ eventsByAbc, eventsByDate }: EventLis
 
     return (
         <>
-            <h2>Афиша</h2>
+            <h2 id='events'>Афиша</h2>
             <div className={styles.filters}>
                 <div
                     className={clsx(styles.button, { [styles.select]: !filterByAbсState })}

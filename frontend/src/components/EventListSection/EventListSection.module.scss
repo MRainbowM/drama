@@ -12,7 +12,7 @@
     cursor: pointer;
 }
 
-.button.select {
+.button:not(.select) {
     background-color: var(--color-black);
 }
 
