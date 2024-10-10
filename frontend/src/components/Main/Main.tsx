@@ -1,6 +1,7 @@
 import styles from './Main.module.scss'
 import Round from 'public/static/images/round.svg'
 import Image from 'next/image'
+import MainImg from 'public/static/images/main.jpeg'
 
 export default function Main() {
 
@@ -10,14 +11,14 @@ export default function Main() {
                 <span>Новая</span>
                 <span>Драма</span>
             </h1>
-            
+
             <div className={styles.mainImage}>
                 <Image
                     className={styles.eventMediaItem}
-                    src={'/media/event_image/2024/10/09/main.jpeg'}// TODO
-                    width={500}
-                    height={500}
-                    alt='Новая драма' 
+                    src={MainImg.src}
+                    width={MainImg.width}
+                    height={MainImg.height}
+                    alt='Новая драма'
                 />
             </div>
 
