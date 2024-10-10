@@ -24,4 +24,5 @@
 
 .accordion.open {
     grid-template-rows: 1fr;
+    border-top: 1px var(--color-black) solid;
 }
