@@ -3,6 +3,8 @@ import EventListSection from '../components/EventListSection/EventListSection';
 import MainSection from '../components/MainSection/MainSection'
 import Map from '../components/Map/Map';
 import RestaurantSection from '../components/RestaurantSection/RestaurantSection';
+import SamSection from '../components/SamSection/SamSection';
+import YogaSection from '../components/YogaSection/YogaSection';
 import '../styles/page.scss'
 
 export default async function MainPage() {
@@ -44,6 +46,8 @@ export default async function MainPage() {
             eventsByDate={responseEventsByDate.data}
         />
         <RestaurantSection />
+        <SamSection />
+        <YogaSection />
         {/* <Map /> */}
     </>);
 }
