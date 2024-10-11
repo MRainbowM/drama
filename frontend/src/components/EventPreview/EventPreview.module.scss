@@ -20,10 +20,10 @@
     margin-bottom: 10px;
     font-size: var(--h3-font-size);
     cursor: pointer;
-}
 
-.title:hover {
-    color: var(--color-red);
+    &:hover {
+        color: var(--color-red);
+    }
 }
 
 .previewCover {
@@ -48,11 +48,11 @@
     flex-direction: column;
     flex-wrap: wrap;
     font-size: var(--text-font-size);
-    gap: 10px
-}
+    gap: 10px;
 
-.info>span {
-    opacity: var(--text-opacity);
+    &>span {
+        opacity: var(--text-opacity);
+    }
 }
 
 .premier {
@@ -74,5 +74,5 @@
 @media (max-width: 500px) {
     .date {
         font-size: 18px;
-    }   
+    }
 }
