@@ -14,6 +14,8 @@ class EventShow(DatesAbstract):
     is_enable = models.BooleanField(_('Показывать в афише'), default=True)
     is_premiere = models.BooleanField(_('Премьера'), default=False)
 
+    link_to_buy_ticket = models.CharField(_('Ссылка на покупку билетов'), max_length=256, default='')
+
     class Meta:
         verbose_name = _('Спектакль в афише')
         verbose_name_plural = _('Спектакли в афише')

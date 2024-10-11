@@ -68,8 +68,8 @@ export interface components {
             /** Is Enable */
             is_enable?: boolean | null;
         };
-        /** EventBoundSchema */
-        EventBoundSchema: {
+        /** EventPreviewSchema */
+        EventPreviewSchema: {
             /** ID */
             id?: number | null;
             /** Название спектакля */
@@ -94,7 +94,7 @@ export interface components {
         EventShowOutSchema: {
             /** Id */
             id: number;
-            event: components["schemas"]["EventBoundSchema"];
+            event: components["schemas"]["EventPreviewSchema"];
             /**
              * Start At
              * Format: date-time
@@ -102,25 +102,20 @@ export interface components {
             start_at: string;
             /** Is Premiere */
             is_premiere: boolean;
+            /** Link To Buy Ticket */
+            link_to_buy_ticket: string;
         };
         /** EventFilterSchema */
         EventFilterSchema: {
             /** Is Enable */
             is_enable?: boolean | null;
         };
-        /** EventImageBoundSchema */
-        EventImageBoundSchema: {
-            /** ID */
-            id?: number | null;
-            /** Фото */
-            image: string;
-        };
-        /** EventOutSchema */
-        EventOutSchema: {
+        /** EventDetailSchema */
+        EventDetailSchema: {
             /** Peoples */
             peoples: components["schemas"]["EventPeopleOutSchema"][];
             /** Images */
-            images: components["schemas"]["EventImageBoundSchema"][];
+            images: components["schemas"]["EventImageOutSchema"][];
             /** ID */
             id?: number | null;
             /** Название спектакля */
@@ -163,9 +158,16 @@ export interface components {
              */
             premiere_at: string;
         };
+        /** EventImageOutSchema */
+        EventImageOutSchema: {
+            /** ID */
+            id?: number | null;
+            /** Фото */
+            image: string;
+        };
         /** EventPeopleOutSchema */
         EventPeopleOutSchema: {
-            people: components["schemas"]["PeopleBoundSchema"];
+            people: components["schemas"]["PeopleOutSchema"];
             /** ID */
             id?: number | null;
             /**
@@ -184,8 +186,8 @@ export interface components {
              */
             sort: number;
         };
-        /** PeopleBoundSchema */
-        PeopleBoundSchema: {
+        /** PeopleOutSchema */
+        PeopleOutSchema: {
             /** ID */
             id?: number | null;
             /** Имя, фамилия */
@@ -241,7 +243,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["EventBoundSchema"][];
+                    "application/json": components["schemas"]["EventPreviewSchema"][];
                 };
             };
         };
@@ -263,7 +265,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["EventOutSchema"];
+                    "application/json": components["schemas"]["EventDetailSchema"];
                 };
             };
         };

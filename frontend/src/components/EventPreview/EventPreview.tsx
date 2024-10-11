@@ -4,7 +4,7 @@ import styles from './EventPreview.module.scss'
 import Image from 'next/image'
 
 interface EventPreviewProps {
-    event: components['schemas']['EventBoundSchema'],
+    event: components['schemas']['EventPreviewSchema'],
     is_premiere: boolean,
     tag: string
 }

@@ -6,7 +6,7 @@ import EventMedia from '../EventMedia/EventMedia';
 import EventSection from '../EventSection/EventSection';
 
 interface EventDetailProps {
-    data: components['schemas']['EventOutSchema']
+    data: components['schemas']['EventDetailSchema']
 }
 
 

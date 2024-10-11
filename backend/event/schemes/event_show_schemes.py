@@ -3,14 +3,15 @@ from typing import Optional
 
 from ninja import Schema, FilterSchema, Field
 
-from .event_schemes import EventBoundSchema
+from .event_schemes import EventPreviewSchema
 
 
 class EventShowOutSchema(Schema):
     id: int
-    event: EventBoundSchema
+    event: EventPreviewSchema
     start_at: datetime
     is_premiere: bool
+    link_to_buy_ticket: str
 
 
 class EventShowFilterSchema(FilterSchema):

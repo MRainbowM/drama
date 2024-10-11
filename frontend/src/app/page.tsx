@@ -2,6 +2,7 @@ import { apiClient } from '../api/client'
 import EventListSection from '../components/EventListSection/EventListSection';
 import MainSection from '../components/MainSection/MainSection'
 import Map from '../components/Map/Map';
+import RestaurantSection from '../components/RestaurantSection/RestaurantSection';
 import '../styles/page.scss'
 
 export default async function MainPage() {
@@ -42,6 +43,7 @@ export default async function MainPage() {
             eventsByAbc={responseEventsByAbc.data}
             eventsByDate={responseEventsByDate.data}
         />
+        <RestaurantSection />
         {/* <Map /> */}
     </>);
 }

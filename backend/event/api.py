@@ -8,9 +8,9 @@ from event.models import EventShow, Event
 from .schemes import (
     EventShowFilterSchema,
     EventShowOutSchema,
-    EventOutSchema,
+    EventDetailSchema,
     EventFilterSchema,
-    EventBoundSchema
+    EventPreviewSchema
 )
 
 router = Router()
@@ -31,7 +31,7 @@ def get_event_show_list(request, filters: EventShowFilterSchema = Query(...)):
 
 @router.get(
     '/event/list',
-    response=List[EventBoundSchema],
+    response=List[EventPreviewSchema],
     tags=[_('Спектакли')],
     summary=_('Получить список всех спектаклей: репертуар')
 )
@@ -43,7 +43,7 @@ def get_event_list(request, filters: EventFilterSchema = Query(...)):
 
 @router.get(
     '/event/{slug}',
-    response=EventOutSchema,
+    response=EventDetailSchema,
     tags=[_('Спектакли')],
     summary=_('Получить данные спектакля по slug')
 )

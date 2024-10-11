@@ -7,7 +7,7 @@ import clsx from "clsx"
 import EventPreview from '../EventPreview/EventPreview'
 
 interface EventListSectionProps {
-    eventsByAbc: components['schemas']['EventBoundSchema'][],
+    eventsByAbc: components['schemas']['EventPreviewSchema'][],
     eventsByDate: components['schemas']['EventShowOutSchema'][],
 }
 

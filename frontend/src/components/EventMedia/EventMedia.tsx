@@ -3,7 +3,7 @@ import { components } from '../../api/schema'
 import Image from 'next/image'
 
 interface EventMediaProps {
-    data: components['schemas']['EventImageBoundSchema'][]
+    data: components['schemas']['EventImageOutSchema'][]
 }
 
 export default function EventMedia({ data }: EventMediaProps) {

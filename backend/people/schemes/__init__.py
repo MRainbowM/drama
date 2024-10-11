@@ -1,2 +1,2 @@
 from .event_people_schemes import EventPeopleOutSchema
-from .people_schemes import PeopleBoundSchema
+from .people_schemes import PeopleOutSchema

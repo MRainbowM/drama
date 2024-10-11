@@ -4,13 +4,13 @@ from charset_normalizer.md import List
 from ninja import ModelSchema, FilterSchema, Field
 
 from people.schemes import EventPeopleOutSchema
-from .event_image_schemes import EventImageBoundSchema
+from .event_image_schemes import EventImageOutSchema
 from ..models import Event
 
 
-class EventOutSchema(ModelSchema):
+class EventDetailSchema(ModelSchema):
     peoples: List[EventPeopleOutSchema]
-    images: List[EventImageBoundSchema]
+    images: List[EventImageOutSchema]
 
     class Config:
         model = Event
@@ -29,7 +29,7 @@ class EventOutSchema(ModelSchema):
         return obj.images.all()
 
 
-class EventBoundSchema(ModelSchema):
+class EventPreviewSchema(ModelSchema):
     class Config:
         model = Event
         model_fields = [
