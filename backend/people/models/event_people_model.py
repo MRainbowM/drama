@@ -23,6 +23,8 @@ class EventPeople(DatesAbstract):
     role = models.CharField(
         _('Роль участника в спектакле'),
         max_length=256,
+        default='',
+        blank=True,
         help_text='Если участник - актер: указать имя персонажа. ' +
                   'Если участник выполняет другую роль, например, художник - нужно указать "художник"'
     )
