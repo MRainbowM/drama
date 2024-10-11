@@ -4,7 +4,7 @@ import VK from 'public/static/images/vk.svg'
 import FB from 'public/static/images/fb.svg'
 import IG from 'public/static/images/ig.svg'
 import YT from 'public/static/images/yt.svg'
-import Logo from 'public/static/images/nd.svg'
+
 
 export default function Footer() {
     return (<>
