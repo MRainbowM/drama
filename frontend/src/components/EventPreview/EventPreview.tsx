@@ -10,7 +10,7 @@ interface EventPreviewProps {
 }
 
 export default function EventPreview(
-    {  event, is_premiere, tag }: EventPreviewProps
+    { event, is_premiere, tag }: EventPreviewProps
 ) {
     return (
         <div className={styles.event}>
@@ -32,10 +32,16 @@ export default function EventPreview(
                     className={styles.title}
                     href={`/event/${event.slug}`}
                 >
-                    <span>{event.name}</span>
+                    {event.name}
                 </Link>
 
                 <span>{event.short_description}</span>
+
+                {
+                    event.min_age_limit > 0 ? (
+                        <span>{event.min_age_limit}+</span>
+                    ) : (<></>)
+                }
 
                 {
                     is_premiere ? (

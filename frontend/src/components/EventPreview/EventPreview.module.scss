@@ -56,6 +56,11 @@
     flex-wrap: wrap;
     font-size: var(--text-font-size);
     // opacity: var(--text-opacity);
+    gap: 10px
+}
+
+.info>span {
+    opacity: var(--text-opacity);
 }
 
 .premier {
@@ -65,7 +70,6 @@
     color: var(--color-red);
     border: 1px red solid;
     border-radius: 3px;
-    margin-top: 10px;
 }
 
 
