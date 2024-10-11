@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { components } from '../../api/schema'
 import styles from './EventPreview.module.scss'
 import Image from 'next/image'
+import MainGrid from '../MainGrid/MainGrid'
 
 interface EventPreviewProps {
     event: components['schemas']['EventPreviewSchema'],
@@ -13,43 +14,51 @@ export default function EventPreview(
     { event, is_premiere, tag }: EventPreviewProps
 ) {
     return (
-        <div className={styles.event}>
-            <div className={styles.date}>
-                <span>{tag}</span>
-            </div>
+        <MainGrid
+            dataLeft={
+                <div className={styles.date}>
+                    <span>{tag}</span>
+                </div>
+            }
 
-            <div className={styles.previewCover}>
-                <Image
-                    src={event.preview_cover}
-                    width={500}
-                    height={500}
-                    alt={event.name}
-                />
-            </div>
+            dataCenter={
+                <div className={styles.previewCover}>
+                    <Image
+                        className={styles.previewCoverImg}
+                        src={event.preview_cover}
+                        width={500}
+                        height={500}
+                        alt={event.name}
+                    />
+                </div>
+            }
 
-            <div className={styles.info}>
-                <Link
-                    className={styles.title}
-                    href={`/event/${event.slug}`}
-                >
-                    {event.name}
-                </Link>
+            dataRight={
+                <div className={styles.info}>
+                    <Link
+                        className={styles.title}
+                        href={`/event/${event.slug}`}
+                    >
+                        {event.name}
+                    </Link>
 
-                <span>{event.short_description}</span>
+                    <span>{event.short_description}</span>
 
-                {
-                    event.min_age_limit > 0 ? (
-                        <span>{event.min_age_limit}+</span>
-                    ) : (<></>)
-                }
+                    {
+                        event.min_age_limit > 0 ? (
+                            <span>{event.min_age_limit}+</span>
+                        ) : (<></>)
+                    }
 
-                {
-                    is_premiere ? (
-                        <span className={styles.premier}>премьера</span>
-                    ) : (<></>)
-                }
+                    {
+                        is_premiere ? (
+                            <span className={styles.premier}>премьера</span>
+                        ) : (<></>)
+                    }
 
-            </div>
-        </div>
+                </div>
+            }
+
+        />
     );
 }
