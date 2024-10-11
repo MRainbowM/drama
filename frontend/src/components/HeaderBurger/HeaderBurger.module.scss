@@ -4,12 +4,26 @@
     justify-content: space-between;
     height: 22px;
     cursor: pointer;
+    
+    &:hover {
+        .lineTop,
+        .lineMid,
+        .lineBot {
+            background-color: var(--color-red);
+        }
+    }
 }
 
-.burger>.line {
+.lineTop,
+.lineMid,
+.lineBot {
     width: 25px;
     height: 3px;
     background-color: currentColor;
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .2s ease all;
+    transition: .2s ease all;
 }
 
 .accordion {
@@ -26,4 +40,18 @@
 .accordion.open {
     grid-template-rows: 1fr;
     border-top: 1px var(--color-black) solid;
+}
+
+.lineTop.open {
+    -webkit-transform: rotate(45deg);
+    transform: translateY(10px) rotate(45deg);
+}
+
+.lineMid.open {
+    opacity: 0;
+}
+
+.lineBot.open {
+    -webkit-transform: rotate(45deg);
+    transform: translateY(-9px) rotate(-45deg);
 }

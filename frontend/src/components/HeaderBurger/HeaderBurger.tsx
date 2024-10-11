@@ -18,9 +18,9 @@ export default function HeaderBurger({ children }: HeaderBurgerProps) {
     return (
         <div>
             <div className={styles.burger}  onClick={onClick}>
-                <div className={styles.line}></div>
-                <div className={styles.line}></div>
-                <div className={styles.line}></div>
+                <div className={clsx(styles.lineTop, { [styles.open]: isOpen })}></div>
+                <div className={clsx(styles.lineMid, { [styles.open]: isOpen })}></div>
+                <div className={clsx(styles.lineBot, { [styles.open]: isOpen })}></div>
             </div>
             <div className={clsx(styles.accordion, { [styles.open]: isOpen })}>
                 {children}
@@ -28,3 +28,4 @@ export default function HeaderBurger({ children }: HeaderBurgerProps) {
         </div>
     )
 }
+
