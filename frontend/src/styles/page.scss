@@ -1,5 +1,6 @@
 h2 {
     font-size: var(--h1-h2-font-size);
     text-transform: uppercase;
-    padding-top: var(--padding-base);
+    padding-top: calc(var(--header-height) + var(--header-top) + var(--padding-base));
+    padding-bottom: var(--padding-base);
 }
