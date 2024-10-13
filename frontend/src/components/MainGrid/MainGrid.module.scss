@@ -1,10 +1,15 @@
 .root {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr var(--header-width-base) 1fr;
     gap: 20px;
     width: 100%;
     border-top: solid 1px var(--color-white);
     padding: var(--padding-base) 0;
+}
+
+.root:last-child{
+    // border-bottom: 1px var(--color-white) solid;
 }
 
 .leftColumn {}

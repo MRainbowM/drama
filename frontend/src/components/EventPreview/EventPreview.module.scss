@@ -24,6 +24,12 @@
     &:hover {
         color: var(--color-red);
     }
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+    }
 }
 
 .previewCover {
