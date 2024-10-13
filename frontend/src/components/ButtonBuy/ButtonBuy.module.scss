@@ -1,7 +1,19 @@
 .root {
     height: 100%;
-    background-color: var(--color-red);
     padding: 5px 10px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: var(--text-opacity);
+        z-index: -1;
+        background-color: var(--color-red);
+    }
+
 
     &>.btn {
         z-index: 5;
