@@ -1,0 +1,14 @@
+.root {
+    height: 100%;
+    background-color: var(--color-red);
+    padding: 5px 10px;
+
+    &>.btn {
+        z-index: 5;
+        text-transform: uppercase;
+        font-size: var(--text-font-size);
+        max-width: min-content;
+        white-space: nowrap;
+        color: var(--color-white);
+    }
+}

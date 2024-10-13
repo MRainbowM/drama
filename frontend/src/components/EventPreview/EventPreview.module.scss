@@ -25,11 +25,11 @@
         color: var(--color-red);
     }
 
-    &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-    }
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     inset: 0;
+    // }
 }
 
 .previewCover {
@@ -56,20 +56,27 @@
     font-size: var(--text-font-size);
     gap: 10px;
 
+    position: relative;
+    height: 100%;
+
     &>span {
         opacity: var(--text-opacity);
     }
+
+    &>.premier {
+        max-width: min-content;
+        padding: 2px 5px;
+        text-transform: uppercase;
+        color: var(--color-red);
+        border: 1px red solid;
+        border-radius: 3px;
+    }
 }
 
-.premier {
-    max-width: min-content;
-    padding: 2px 5px;
-    text-transform: uppercase;
-    color: var(--color-red);
-    border: 1px red solid;
-    border-radius: 3px;
+.btn {
+    position: absolute;
+    bottom: 0;
 }
-
 
 @media (max-width: 1023px) {
     .date {

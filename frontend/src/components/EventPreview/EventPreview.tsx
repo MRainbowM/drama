@@ -3,15 +3,17 @@ import { components } from '../../api/schema'
 import styles from './EventPreview.module.scss'
 import Image from 'next/image'
 import MainGrid from '../MainGrid/MainGrid'
+import ButtonBuy from '../ButtonBuy/ButtonBuy'
 
 interface EventPreviewProps {
     event: components['schemas']['EventPreviewSchema'],
-    is_premiere: boolean,
-    tag: string
+    isPremiere: boolean,
+    tag: string,
+    linkToBuyTicket?: string
 }
 
 export default function EventPreview(
-    { event, is_premiere, tag }: EventPreviewProps
+    { event, isPremiere: isPremiere, tag, linkToBuyTicket }: EventPreviewProps
 ) {
     return (
         <MainGrid
@@ -33,7 +35,7 @@ export default function EventPreview(
                 </div>
             }
 
-            dataRight={
+            dataRight={<>
                 <div className={styles.info}>
                     <Link
                         className={styles.title}
@@ -51,14 +53,24 @@ export default function EventPreview(
                     }
 
                     {
-                        is_premiere ? (
+                        isPremiere ? (
                             <span className={styles.premier}>премьера</span>
                         ) : (<></>)
                     }
 
-                </div>
-            }
+                    {
+                        linkToBuyTicket ? (
+                            <div className={styles.btn}>
+                                <ButtonBuy
+                                    link={linkToBuyTicket}
 
+                                />
+                            </div>
+
+                        ) : (<></>)
+                    }
+                </div>
+            </>}
         />
     );
 }

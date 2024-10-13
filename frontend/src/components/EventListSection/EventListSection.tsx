@@ -46,7 +46,7 @@ export default function EventListSection({ eventsByAbc, eventsByDate }: EventLis
                             <EventPreview
                                 key={item.id}
                                 event={item}
-                                is_premiere={false}
+                                isPremiere={false}
                                 tag={item.name[0]}
                             />))
                     ) : (<></>)
@@ -56,7 +56,7 @@ export default function EventListSection({ eventsByAbc, eventsByDate }: EventLis
                             <EventPreview
                                 key={item.id}
                                 event={item.event}
-                                is_premiere={item.is_premiere}
+                                isPremiere={item.is_premiere}
                                 tag={
                                     new Intl.DateTimeFormat('ru-RU', {
                                         day: 'numeric',
@@ -67,6 +67,7 @@ export default function EventListSection({ eventsByAbc, eventsByDate }: EventLis
                                         new Date(item.start_at)
                                     ).replace('.', '')
                                 }
+                                linkToBuyTicket={item.link_to_buy_ticket}
                             />))
                     ) : (<></>)
                 )
