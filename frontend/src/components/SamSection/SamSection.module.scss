@@ -2,11 +2,25 @@
     width: 100%;
 }
 
-.content{
+.imgSection {
     width: 100%;
+
+    &>img {
+        width: 100%;
+        height: auto;
+    }
 }
 
-.content>img{
-    width: 100%;
-    height: auto;
+.info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: var(--text-font-size);
+    gap: 10px;
+
+    &>.title {
+        font-size: var(--h3-font-size);
+        text-transform: uppercase;
+        font-weight: bold;
+    }
 }
