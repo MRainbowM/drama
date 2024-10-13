@@ -2,6 +2,7 @@ import styles from './YogaSection.module.scss'
 import Image from 'next/image'
 import YogaImg from 'public/static/images/yogaImg.jpg'
 import MainGrid from '../MainGrid/MainGrid'
+import MainGridInfo from '../MainGridInfo/MainGridInfo';
 
 export default function YogaSection() {
     return (
@@ -21,14 +22,14 @@ export default function YogaSection() {
                     </div>
                 }
                 dataRight={
-                    <div className={styles.info}>
-                        <span className={styles.title}>
-                            YOGA в театре
-                        </span>
-                        <p>
-                            Следуя заветам К.С. Станиславского, мы открыли направление «YOGA в театре».
-                        </p>
-                    </div>
+                    <MainGridInfo
+                        title={'YOGA в театре'}
+                        content={
+                            <p>
+                                Следуя заветам К.С. Станиславского, мы открыли направление «YOGA в театре».
+                            </p>
+                        }
+                    />
                 }
             />
         </div>

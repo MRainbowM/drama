@@ -2,6 +2,7 @@ import styles from './SamSection.module.scss'
 import Image from 'next/image'
 import SamLogo from 'public/static/images/samLogo.png'
 import MainGrid from '../MainGrid/MainGrid'
+import MainGridInfo from '../MainGridInfo/MainGridInfo';
 
 export default function SamSection() {
     return (
@@ -21,14 +22,14 @@ export default function SamSection() {
                     </div>
                 }
                 dataRight={
-                    <div className={styles.info}>
-                        <span className={styles.title}>
-                            Студия актерского мастерства
-                        </span>
-                        <p>
-                            Мы САМозабвенно отданы своему делу и стремимся собрать вокруг себя людей похожих на нас - САМоотверженно любящих искусство, жаждущих творить и экспериментировать.
-                        </p>
-                    </div>
+                    <MainGridInfo
+                        title={' Студия актерского мастерства'}
+                        content={
+                            <p>
+                                Мы САМозабвенно отданы своему делу и стремимся собрать вокруг себя людей похожих на нас - САМоотверженно любящих искусство, жаждущих творить и экспериментировать.
+                            </p>
+                        }
+                    />
                 }
             />
         </div>
