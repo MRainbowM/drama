@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import Link from 'next/link'
 import { components } from '../../api/schema'
 import styles from './EventPreview.module.scss'
@@ -36,7 +37,7 @@ export default function EventPreview(
             }
 
             dataRight={<>
-                <div className={styles.info}>
+                <div className={clsx(styles.info, { [styles.infoWithBtn]: linkToBuyTicket })}>
                     <Link
                         className={styles.title}
                         href={`/event/${event.slug}`}

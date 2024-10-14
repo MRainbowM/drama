@@ -74,6 +74,10 @@
     }
 }
 
+.infoWithBtn {
+    padding-bottom: 45px;
+}
+
 .btn {
     position: absolute;
     bottom: 0;
@@ -82,6 +86,14 @@
 @media (max-width: 1023px) {
     .date {
         font-size: var(--text-font-size);
+    }
+}
+
+@media (max-width: 760px) {
+    .previewCover {
+        &:before {
+            content: unset;
+        }
     }
 }
 
