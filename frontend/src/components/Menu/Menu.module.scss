@@ -2,6 +2,7 @@
     background-color: var(--color-white);
     color: var(--color-black);
     overflow: hidden;
+    user-select: none;
 }
 
 .menu>ul {
@@ -14,7 +15,6 @@
 .menu>ul>li {
     list-style-type: none;
     flex-direction: column;
-    user-select: none;
 }
 
 .menu>ul>li>a {
