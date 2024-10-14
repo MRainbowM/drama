@@ -16,7 +16,7 @@
     background-color: var(--color-white);
     color: var(--color-black);
 
-    z-index: 10;
+    z-index: var(--z-index-header);
 }
 
 .logo {
