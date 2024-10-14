@@ -5,10 +5,18 @@
     font-size: var(--text-font-size);
     gap: 10px;
 
-    &>.title {
+    .title {
         font-size: var(--h3-font-size);
         text-transform: uppercase;
         font-weight: bold;
+    }
+
+    a {
+        max-width: min-content;
+
+        :hover {
+            color: var(--color-red)
+        }
     }
 
 }
