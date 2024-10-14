@@ -13,7 +13,6 @@ export default function SamSection() {
                 dataCenter={
                     <div className={styles.imgSection}>
                         <Image
-                            className={styles.eventMediaItem}
                             src={SamLogo.src}
                             width={SamLogo.width}
                             height={SamLogo.height}

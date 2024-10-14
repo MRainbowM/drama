@@ -23,9 +23,8 @@ export default function EventDetail({ data }: EventDetailProps) {
     const peoplesGroupTag = Object.groupBy(data.peoples, ({ tag }) => tag);
 
     return (<>
-        <div className={styles.eventHeader}>
+        <div className={styles.cover}>
             <Image
-                className={styles.eventCover}
                 src={data.cover}
                 width={500}
                 height={500}
@@ -41,8 +40,8 @@ export default function EventDetail({ data }: EventDetailProps) {
             <span>{duration}, {intermission}</span>
         </div>
 
-        <div className={styles.eventDescription}>
-            <div className={styles.eventDescriptionText}>
+        <div className={styles.descriptionSection}>
+            <div className={styles.descriptionText}>
                 {data.description}
             </div>
             <span className={styles.premiereAt}>Премьера: {premiereAt}</span>
