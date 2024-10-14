@@ -2,6 +2,7 @@
     position: fixed;
     inset: 0;
     z-index: calc(var(--z-index-header) - 1);
+    background: rgba(0, 0, 0, 0.75);
 }
 
 .burger {
