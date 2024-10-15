@@ -1,7 +1,8 @@
+import SocialMedia from '../SocialMedia/SocialMedia';
 import styles from './Menu.module.scss'
 
 export default function Menu() {
-    return (
+    return (<>
         <nav className={styles.menu}>
             <ul>
                 <li><a href="/#events">Афиша</a></li>
@@ -12,6 +13,9 @@ export default function Menu() {
                 <li><a href="#">Yoga</a></li>
                 {/* <li><a href="#">Контакты</a></li> */}
             </ul>
+            <div className={styles.media}>
+                <SocialMedia />
+            </div>
         </nav>
-    )
+    </>);
 }
