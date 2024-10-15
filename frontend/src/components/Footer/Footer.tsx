@@ -1,9 +1,5 @@
-import Link from 'next/link'
 import styles from './Footer.module.scss'
-import VK from 'public/static/images/vk.svg'
-import FB from 'public/static/images/fb.svg'
-import IG from 'public/static/images/ig.svg'
-import YT from 'public/static/images/yt.svg'
+import SocialMedia from '../SocialMedia/SocialMedia'
 
 
 export default function Footer() {
@@ -25,22 +21,7 @@ export default function Footer() {
             </div>
 
             <div className={styles.media}>
-                <Link
-                    href={'https://vk.com/novayadrama'}
-                    target='_blank'
-                ><VK /></Link>
-                <Link
-                    href={'https://www.instagram.com/novaya_drama_irkutsk'}
-                    target='_blank'
-                ><IG /></Link>
-                <Link
-                    href={'https://www.youtube.com/channel/UCVrDmCTXE3vJpFqJja7rwEQ'}
-                    target='_blank'
-                ><YT /></Link>
-                <Link
-                    href={'https://www.facebook.com/novayadrama'}
-                    target='_blank'
-                ><FB /></Link>
+                <SocialMedia isBgWhite={true}/>
             </div>
 
             <div className={styles.logo}>

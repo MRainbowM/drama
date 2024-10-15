@@ -41,17 +41,6 @@
     display: flex;
 }
 
-.media>a {
-    width: 35px;
-}
-
-.media>svg {
-    height: 35px;
-}
-
-.media>a:hover {
-    color: var(--color-red);
-}
 
 
 @media (max-width: 1023px) {

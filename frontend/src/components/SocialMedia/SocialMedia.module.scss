@@ -1,0 +1,43 @@
+.link {
+    width: 35px;
+
+    svg {
+        height: 35px;
+    }
+
+    &:hover {
+        color: var(--color-red);
+    }
+}
+
+.link.fb {
+    path:first-child {
+        fill: var(--color-black);
+    }
+
+    path:last-child {
+        fill: var(--color-white);
+    }
+
+    &:hover {
+        path:first-child {
+            fill: var(--color-red);
+        }
+    }
+}
+
+.link.fb.white {
+    path:first-child {
+        fill: var(--color-white);
+    }
+
+    path:last-child {
+        fill: var(--color-black);
+    }
+
+    &:hover {
+        path:first-child {
+            fill: var(--color-red);
+        }
+    }
+}
