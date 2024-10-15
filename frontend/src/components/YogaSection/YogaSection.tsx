@@ -7,7 +7,7 @@ import MainGridInfo from '../MainGridInfo/MainGridInfo';
 export default function YogaSection() {
     return (
         <div className={styles.root}>
-            <h2>YOGA</h2>
+            <h2 id="yoga">YOGA</h2>
             <MainGrid
                 dataLeft={<></>}
                 dataCenter={

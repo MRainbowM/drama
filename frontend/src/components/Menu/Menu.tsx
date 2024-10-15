@@ -6,11 +6,11 @@ export default function Menu() {
         <nav className={styles.menu}>
             <ul>
                 <li><a href="/#events">Афиша</a></li>
-                <li><a href="#">О нас</a></li>
+                {/* <li><a href="#">О нас</a></li> */}
                 <li><a href="#">Коллектив</a></li>
-                <li><a href="#">С.А.М.</a></li>
-                <li><a href="#">Ресторан</a></li>
-                <li><a href="#">Yoga</a></li>
+                <li><a href="/sam">С.А.М.</a></li>
+                <li><a href="/#restaurant">Ресторан</a></li>
+                <li><a href="/#yoga">Yoga</a></li>
                 {/* <li><a href="#">Контакты</a></li> */}
             </ul>
             <div className={styles.media}>
