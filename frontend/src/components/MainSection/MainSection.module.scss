@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    z-index: 3;
 }
 
 .root>h1>span:first-child {
