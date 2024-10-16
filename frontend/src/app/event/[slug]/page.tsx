@@ -15,7 +15,7 @@ export default async function EventPage({ params: { slug } }: EventPageProps) {
     })
 
     if (response.error) { // TODO: error
-        throw new Error('qweqwe')
+        throw new Error('error')
     }
 
     return (

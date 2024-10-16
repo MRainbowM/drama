@@ -55,6 +55,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/people/list": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Получить список людей театра */
+        get: operations["people_api_get_event_show_list"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -178,8 +195,9 @@ export interface components {
             /**
              * Роль участника в спектакле
              * @description Если участник - актер: указать имя персонажа. Если участник выполняет другую роль, например, художник - нужно указать "художник"
+             * @default
              */
-            role: string;
+            role: string | null;
             /**
              * Сортировка
              * @default 0
@@ -192,6 +210,40 @@ export interface components {
             id?: number | null;
             /** Имя, фамилия */
             name: string;
+        };
+        /** PeopleDetailSchema */
+        PeopleDetailSchema: {
+            /** ID */
+            id?: number | null;
+            /** Имя, фамилия */
+            name: string;
+            /**
+             * Тег
+             * @description Фильтр на странице "Коллектив"
+             */
+            tag?: string | null;
+            /**
+             * Фотография
+             * @default
+             */
+            photo: string | null;
+            /**
+             * Описание
+             * @default
+             */
+            description: string | null;
+            /** Дата рождения */
+            birthday?: string | null;
+            /**
+             * Должность
+             * @default
+             */
+            position: string | null;
+            /**
+             * Образование
+             * @default
+             */
+            education: string | null;
         };
     };
     responses: never;
@@ -266,6 +318,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["EventDetailSchema"];
+                };
+            };
+        };
+    };
+    people_api_get_event_show_list: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PeopleDetailSchema"][];
                 };
             };
         };
