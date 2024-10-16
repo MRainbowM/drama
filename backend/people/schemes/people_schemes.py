@@ -7,7 +7,7 @@ class PeopleOutSchema(ModelSchema):
     class Config:
         model = People
         model_fields = [
-            'id', 'name'
+            'id', 'first_name', 'last_name'
         ]
 
 
@@ -15,5 +15,5 @@ class PeopleDetailSchema(ModelSchema):
     class Config:
         model = People
         model_fields = [
-            'id', 'name', 'tag', 'photo', 'description', 'birthday', 'position', 'education'
+            'id', 'first_name', 'last_name', 'tag', 'photo', 'description', 'birthday', 'position', 'education'
         ]

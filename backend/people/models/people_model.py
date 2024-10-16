@@ -8,7 +8,8 @@ from ..choices import PEOPLE_FILTER_TAG_LIST
 
 class People(DatesAbstract):
     """Люди театра"""
-    name = models.CharField(_('Имя, фамилия'), max_length=512)
+    first_name = models.CharField(_('Имя'), max_length=512)
+    last_name = models.CharField(_('Фамилия'), max_length=512)
     tag = models.CharField(
         _('Тег'),
         choices=PEOPLE_FILTER_TAG_LIST,
