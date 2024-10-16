@@ -36,4 +36,4 @@ class EventPeople(DatesAbstract):
         verbose_name_plural = _('Участники спектакля')
 
     def __str__(self) -> str:
-        return f'{str(self.event.name)} - {str(self.people.name)}'
+        return f'{str(self.event.name)} - {str(self.people.first_name)} {str(self.people.last_name)}'
