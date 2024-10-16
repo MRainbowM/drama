@@ -35,4 +35,4 @@ class People(DatesAbstract):
         verbose_name_plural = _('Люди')
 
     def __str__(self) -> str:
-        return str(self.name)
+        return f'{self.first_name} {self.last_name}'
