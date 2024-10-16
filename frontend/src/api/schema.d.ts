@@ -208,15 +208,19 @@ export interface components {
         PeopleOutSchema: {
             /** ID */
             id?: number | null;
-            /** Имя, фамилия */
-            name: string;
+            /** Имя */
+            first_name: string;
+            /** Фамилия */
+            last_name: string;
         };
         /** PeopleDetailSchema */
         PeopleDetailSchema: {
             /** ID */
             id?: number | null;
-            /** Имя, фамилия */
-            name: string;
+            /** Имя */
+            first_name: string;
+            /** Фамилия */
+            last_name: string;
             /**
              * Тег
              * @description Фильтр на странице "Коллектив"

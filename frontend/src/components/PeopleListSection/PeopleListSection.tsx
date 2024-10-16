@@ -5,7 +5,7 @@ import styles from './PeopleListSection.module.scss'
 import { components } from '../../api/schema'
 
 interface PeopleListSectionProps {
-    data: components['schemas']['PeopleDetailSchema'][]
+    data: Object
 }
 
 
@@ -43,9 +43,7 @@ export default function PeopleListSection(
                         className={styles.selectRow}
                         onClick={onCLickSelect}
                     >
-                        <div>
-                            {filterValues[selectTag]}
-                        </div>
+                        <div>{filterValues[selectTag]}</div>
                         <div className={styles.trigger}>
                             <div className={clsx(styles.arrow, { [styles.open]: isOpen })}></div>
                         </div>

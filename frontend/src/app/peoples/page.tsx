@@ -10,9 +10,28 @@ export default async function PeopleListPage() {
         throw new Error('error'); //TODO
     }
 
-    // console.log(response.data);
+    const peoplesGroupTag = Object.groupBy(response.data, ({ tag }) => tag);
+
+    let peoples = {}
+
+    Object.keys(peoplesGroupTag).forEach(function (item, i, arr) {
+        peoples[item] = {};
+
+        let tagList = Object.values(peoplesGroupTag[item]);
+
+        for (let index = 0; index < tagList.length; index++) {
+            const peopleData = tagList[index];   
+            const firstLetter = peopleData.last_name[0].toUpperCase();
+
+            if (Object.keys(peoples[item]).indexOf(firstLetter) === -1){
+                peoples[item][firstLetter] = [];
+            }
+            peoples[item][firstLetter].push(peopleData);
+        }
+    });
+
 
     return (<>
-        <PeopleListSection data={response.data} />
+        <PeopleListSection data={peoples} />
     </>);
 }
