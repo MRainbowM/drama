@@ -1,5 +1,6 @@
 import { apiClient } from '../../api/client'
 import PeopleListSection from '../../components/PeopleListSection/PeopleListSection';
+import { peopleTagList } from '../../constants/peopleTags';
 
 
 export default async function PeopleListPage() {
@@ -10,25 +11,23 @@ export default async function PeopleListPage() {
         throw new Error('error'); //TODO
     }
 
-    const peoplesGroupTag = Object.groupBy(response.data, ({ tag }) => tag);
+    console.time('qwe')
 
-    let peoples = {}
-
-    Object.keys(peoplesGroupTag).forEach(function (item, i, arr) {
-        peoples[item] = {};
-
-        let tagList = Object.values(peoplesGroupTag[item]);
-
-        for (let index = 0; index < tagList.length; index++) {
-            const peopleData = tagList[index];   
-            const firstLetter = peopleData.last_name[0].toUpperCase();
-
-            if (Object.keys(peoples[item]).indexOf(firstLetter) === -1){
-                peoples[item][firstLetter] = [];
-            }
-            peoples[item][firstLetter].push(peopleData);
-        }
+    let peoples = {};
+    peopleTagList.forEach(tag => {
+        peoples[tag] = {}
     });
+
+    response.data.forEach(function (people, i, arr) {
+        const firstLetter = people.last_name[0].toUpperCase(); //TODO check ln
+        if (!peoples[people.tag][firstLetter]) {
+            peoples[people.tag][firstLetter] = [];
+        }
+        peoples[people.tag][firstLetter].push(people);
+    });
+    console.timeEnd('qwe')
+
+    console.log(peoples);
 
 
     return (<>

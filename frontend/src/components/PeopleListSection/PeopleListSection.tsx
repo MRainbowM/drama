@@ -1,8 +1,12 @@
 'use client'
 import clsx from "clsx"
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 import styles from './PeopleListSection.module.scss'
 import { components } from '../../api/schema'
+import PeoplePreview from "../PeoplePreview/PeoplePreview"
+import { peopleTagActor, peopleTagAuthor, peopleTagDirector, peopleTagTeam, peopleTagToLabel } from "../../constants/peopleTags"
+
+
 
 interface PeopleListSectionProps {
     data: Object
@@ -12,13 +16,6 @@ interface PeopleListSectionProps {
 export default function PeopleListSection(
     { data }: PeopleListSectionProps
 ) {
-    const filterValues = {
-        'actor': 'Актеры',
-        'director': 'Режиссеры',
-        'author': 'Авторы',
-        'team': 'Команда',
-    }
-
     const [selectTag, changeFilter] = useState('actor');
     const [isOpen, setOpen] = useState(false);
 
@@ -43,7 +40,7 @@ export default function PeopleListSection(
                         className={styles.selectRow}
                         onClick={onCLickSelect}
                     >
-                        <div>{filterValues[selectTag]}</div>
+                        <div>{peopleTagToLabel[selectTag]}</div>
                         <div className={styles.trigger}>
                             <div className={clsx(styles.arrow, { [styles.open]: isOpen })}></div>
                         </div>
@@ -52,25 +49,40 @@ export default function PeopleListSection(
                     <div className={clsx(styles.dropdown, { [styles.close]: !isOpen })}>
                         <ul>
                             <li
-                                className={clsx({ [styles.open]: selectTag == "actor" })}
-                                onClick={() => onCLickDropdown('actor')}
-                            >{filterValues['actor']}</li>
+                                className={clsx({ [styles.open]: selectTag == peopleTagActor })}
+                                onClick={() => onCLickDropdown(peopleTagActor)}
+                            >{peopleTagToLabel[peopleTagActor]}</li>
                             <li
-                                className={clsx({ [styles.open]: selectTag == "director" })}
-                                onClick={() => onCLickDropdown('director')}
-                            >{filterValues['director']}</li>
+                                className={clsx({ [styles.open]: selectTag == peopleTagDirector })}
+                                onClick={() => onCLickDropdown(peopleTagDirector)}
+                            >{peopleTagToLabel[peopleTagDirector]}</li>
                             <li
-                                className={clsx({ [styles.open]: selectTag == "author" })}
-                                onClick={() => onCLickDropdown('author')}
-                            >{filterValues['author']}</li>
+                                className={clsx({ [styles.open]: selectTag == peopleTagAuthor })}
+                                onClick={() => onCLickDropdown(peopleTagAuthor)}
+                            >{peopleTagToLabel[peopleTagAuthor]}</li>
                             <li
-                                className={clsx({ [styles.open]: selectTag == "team" })}
-                                onClick={() => onCLickDropdown('team')}
-                            >{filterValues['team']}</li>
+                                className={clsx({ [styles.open]: selectTag == peopleTagTeam })}
+                                onClick={() => onCLickDropdown(peopleTagTeam)}
+                            >{peopleTagToLabel[peopleTagTeam]}</li>
                         </ul>
                     </div>
                 </div>
             </div>
+
+            {
+                data[selectTag] ? (
+
+                    // <div className={styles.grid}>
+
+
+                    <PeoplePreview
+                        data={data[selectTag]}
+                    />
+                    // </div>
+
+                ) : (<></>)
+            }
+
         </div >
     );
 }
