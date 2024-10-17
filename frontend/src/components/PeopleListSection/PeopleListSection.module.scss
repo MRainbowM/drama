@@ -21,7 +21,7 @@
     line-height: 30px;
     font-size: 18px;
     text-transform: uppercase;
-    color:  var(--color-white);
+    color: var(--color-white);
     background: var(--color-gray);
     font-weight: bold;
     min-width: 135px;
@@ -58,13 +58,18 @@
                 border-right: none;
                 border-bottom: none;
                 border-top: 2px solid #fff;
-                border-left: 2px solid #fff;  
+                border-left: 2px solid #fff;
             }
         }
     }
 }
 
 .dropdown {
+    position: absolute;
+    background-color: var(--color-red);
+    top: 36px;
+    z-index: 2;
+    min-width: 135px;
 
     &.close {
         display: none;
