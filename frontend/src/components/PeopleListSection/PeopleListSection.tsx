@@ -16,7 +16,7 @@ interface PeopleListSectionProps {
 export default function PeopleListSection(
     { data }: PeopleListSectionProps
 ) {
-    const [selectTag, changeFilter] = useState('actor');
+    const [selectTag, changeFilter] = useState(peopleTagActor);
     const [isOpen, setOpen] = useState(false);
 
     const onCLickSelect = () => {
