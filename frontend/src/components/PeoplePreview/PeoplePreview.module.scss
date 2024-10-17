@@ -1,5 +1,72 @@
-.root{
+.root {}
+
+.gridRow {
     display: grid;
     grid-template-columns: 1fr var(--header-width-base) 1fr;
-   
+    gap: var(--gap-base);
+    padding: var(--padding-base) 0;
+    border-bottom: 1px var(--color-white) solid;
+}
+
+.colLetter {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--color-light-gray);
+}
+
+.colPeoples {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--gap-base);
+
+    .card {
+        .name {
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .imgBox {
+            width: 100%;
+            display: inline-block;
+            position: relative;
+
+            &:before {
+                content: '';
+                display: block;
+                padding-top: 100%;
+                /* Обеспечивает квадратные пропорции */
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                object-fit: cover;
+            }
+
+        }
+    }
+}
+
+@media (max-width: 760px) {
+    .gridRow {
+        grid-template-columns: 1fr;
+    }
+
+    .colPeoples {
+        grid-template-columns: 1fr 1fr;
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 500px) {
+    .colPeoples {
+        grid-template-columns: 1fr;
+    }
 }

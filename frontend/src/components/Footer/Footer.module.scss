@@ -5,7 +5,7 @@
     padding: var(--padding-base) 0;
     font-size: var(--text-font-size);
     gap: 20px;
-    border-top: 1px var(--color-white) solid;
+    // border-top: 1px var(--color-white) solid;
 }
 
 .item {
@@ -17,10 +17,6 @@
     margin-bottom: 10px;
     font-weight: bold;
 }
-
-// .item>span:last-child, .item>a{
-//     color: var(--color-red);
-// }
 
 .logo {
     display: flex;

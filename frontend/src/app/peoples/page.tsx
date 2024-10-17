@@ -11,8 +11,6 @@ export default async function PeopleListPage() {
         throw new Error('error'); //TODO
     }
 
-    console.time('qwe')
-
     let peoples = {};
     peopleTagList.forEach(tag => {
         peoples[tag] = {}
@@ -25,10 +23,6 @@ export default async function PeopleListPage() {
         }
         peoples[people.tag][firstLetter].push(people);
     });
-    console.timeEnd('qwe')
-
-    console.log(peoples);
-
 
     return (<>
         <PeopleListSection data={peoples} />
