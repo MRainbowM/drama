@@ -11,8 +11,8 @@ export const peopleTagList = [
 ]
 
 export const peopleTagToLabel = {
-    peopleTagActor: 'Актеры',
-    peopleTagDirector: 'Режиссеры',
-    peopleTagAuthor: 'Авторы',
-    peopleTagTeam: 'Команда',
+    [peopleTagActor]: 'Актеры',
+    [peopleTagDirector]: 'Режиссеры',
+    [peopleTagAuthor]: 'Авторы',
+    [peopleTagTeam]: 'Команда',
 }
