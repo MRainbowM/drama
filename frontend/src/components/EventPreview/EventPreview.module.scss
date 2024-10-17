@@ -33,19 +33,36 @@
 }
 
 .previewCover {
-    height: 100%;
-    max-height: 600px;
+    // height: 100%;
+    // max-height: 600px;
+
+    width: 100%;
+    display: inline-block;
+    position: relative;
 
     img {
         height: 100%;
         width: 100%;
         object-fit: cover;
+
+        position: absolute;
+        top: 5px;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 
+    // &:before {
+    //     content: "";
+    //     padding-top: 100%;
+    //     float: left;
+    // }
+
     &:before {
-        content: "";
+        content: '';
+        display: block;
         padding-top: 100%;
-        float: left;
+        /* Обеспечивает квадратные пропорции */
     }
 }
 
@@ -75,7 +92,7 @@
 }
 
 .infoWithBtn {
-    padding-bottom: 45px;
+    padding-bottom: 60px;
 }
 
 .btn {
@@ -86,14 +103,6 @@
 @media (max-width: 1023px) {
     .date {
         font-size: var(--text-font-size);
-    }
-}
-
-@media (max-width: 760px) {
-    .previewCover {
-        &:before {
-            content: unset;
-        }
     }
 }
 

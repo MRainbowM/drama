@@ -4,7 +4,6 @@ import styles from './PeoplePreview.module.scss'
 import Image from 'next/image'
 
 interface PeoplePreviewProps {
-
     data: Object
 }
 
