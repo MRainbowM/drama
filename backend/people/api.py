@@ -1,5 +1,6 @@
 from typing import List
 
+from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from ninja import Router
 
@@ -15,7 +16,18 @@ router = Router()
     tags=[_('Люди театра')],
     summary=_('Получить список людей театра')
 )
-def get_event_show_list(request):
+def get_people_list(request):
     people_list = People.objects.all()
 
     return people_list
+
+
+@router.get(
+    '/{slug}',
+    response=PeopleDetailSchema,
+    tags=[_('Люди театра')],
+    summary=_('Получить данные человека по slug')
+)
+def get_people_by_slug(request, slug: str):
+    people = get_object_or_404(People, slug=slug)
+    return people
