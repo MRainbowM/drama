@@ -63,7 +63,24 @@ export interface paths {
             cookie?: never;
         };
         /** Получить список людей театра */
-        get: operations["people_api_get_event_show_list"];
+        get: operations["people_api_get_people_list"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/people/{slug}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Получить данные человека по slug */
+        get: operations["people_api_get_people_by_slug"];
         put?: never;
         post?: never;
         delete?: never;
@@ -184,7 +201,7 @@ export interface components {
         };
         /** EventPeopleOutSchema */
         EventPeopleOutSchema: {
-            people: components["schemas"]["PeopleOutSchema"];
+            people: components["schemas"]["PeoplePreviewSchema"];
             /** ID */
             id?: number | null;
             /**
@@ -204,14 +221,26 @@ export interface components {
              */
             sort: number;
         };
-        /** PeopleOutSchema */
-        PeopleOutSchema: {
+        /** PeoplePreviewSchema */
+        PeoplePreviewSchema: {
             /** ID */
             id?: number | null;
             /** Имя */
             first_name: string;
             /** Фамилия */
             last_name: string;
+            /** Слаг имени */
+            slug: string;
+            /**
+             * Тег
+             * @description Фильтр на странице "Коллектив"
+             */
+            tag?: string | null;
+            /**
+             * Фотография
+             * @default
+             */
+            photo: string | null;
         };
         /** PeopleDetailSchema */
         PeopleDetailSchema: {
@@ -221,6 +250,8 @@ export interface components {
             first_name: string;
             /** Фамилия */
             last_name: string;
+            /** Слаг имени */
+            slug: string;
             /**
              * Тег
              * @description Фильтр на странице "Коллектив"
@@ -326,7 +357,7 @@ export interface operations {
             };
         };
     };
-    people_api_get_event_show_list: {
+    people_api_get_people_list: {
         parameters: {
             query?: never;
             header?: never;
@@ -341,7 +372,29 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["PeopleDetailSchema"][];
+                    "application/json": components["schemas"]["PeoplePreviewSchema"][];
+                };
+            };
+        };
+    };
+    people_api_get_people_by_slug: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                slug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description OK */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PeopleDetailSchema"];
                 };
             };
         };

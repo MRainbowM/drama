@@ -9,7 +9,7 @@ import { peopleTagActor, peopleTagAuthor, peopleTagDirector, peopleTagTeam, peop
 
 
 interface PeopleListSectionProps {
-    data: Object
+    data: Object //TODO type
 }
 
 
@@ -71,18 +71,11 @@ export default function PeopleListSection(
 
             {
                 data[selectTag] ? (
-
-                    // <div className={styles.grid}>
-
-
                     <PeoplePreview
                         data={data[selectTag]}
                     />
-                    // </div>
-
                 ) : (<></>)
             }
-
         </div >
     );
 }

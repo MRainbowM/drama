@@ -12,12 +12,10 @@ export default async function PeopleListPage() {
     }
 
     let peoples = {};
-    peopleTagList.forEach(tag => {
-        peoples[tag] = {}
-    });
+    peopleTagList.forEach(tag => { peoples[tag] = {} });
 
     response.data.forEach(function (people, i, arr) {
-        const firstLetter = people.last_name[0].toUpperCase(); //TODO check ln
+        const firstLetter = people.last_name[0].toUpperCase();
         if (!peoples[people.tag][firstLetter]) {
             peoples[people.tag][firstLetter] = [];
         }

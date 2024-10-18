@@ -1,7 +1,7 @@
 'use client'
-import { Fragment } from 'react'
 import styles from './PeoplePreview.module.scss'
 import Image from 'next/image'
+import Link from 'next/link'
 
 interface PeoplePreviewProps {
     data: Object
@@ -21,36 +21,31 @@ export default function PeoplePreview(
                     <div className={styles.colLetter}>
                         <span>{letter}</span>
                     </div>
-                    <div className={styles.colPeoples}>
-                        <Fragment key={index}>{
-                            data[letter].map((people, key) => (
+                    <div className={styles.colPeoples} key={index}>
+                        {data[letter].map((people, key) => (
 
-                                <div className={styles.card} key={key}>
-                                    {
-                                        people.photo ? (
+                            <div className={styles.card} data-key={key}>
+                                {people.photo ? (
 
-                                            <div className={styles.imgBox}>
-                                                <Image
-                                                    key={people.id}
-                                                    src={people.photo}
-                                                    width={500}
-                                                    height={500}
-                                                    alt={`${people.first_name} ${people.last_name}`}
-                                                />
-                                            </div>
-
-                                        ) : (<></>)
-                                    }
-
-
-                                    <div className={styles.name}>
-                                        <span>{people.first_name} {people.last_name}</span>
+                                    <div className={styles.imgBox}>
+                                        <Image
+                                            key={people.id}
+                                            src={people.photo}
+                                            width={500}
+                                            height={500}
+                                            alt={`${people.first_name} ${people.last_name}`}
+                                        />
                                     </div>
+
+                                ) : (<></>)}
+
+                                <div className={styles.name}>
+                                    <Link href={`/peoples/${people.slug}`}>
+                                        {people.first_name} {people.last_name}
+                                    </Link>
                                 </div>
-
-
-                            ))
-                        } </Fragment>
+                            </div>
+                        ))}
                     </div>
 
 
