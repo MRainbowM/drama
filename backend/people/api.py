@@ -5,14 +5,14 @@ from django.utils.translation import gettext_lazy as _
 from ninja import Router
 
 from .models import People
-from .schemes import PeopleDetailSchema
+from .schemes import PeopleDetailSchema, PeoplePreviewSchema
 
 router = Router()
 
 
 @router.get(
     '/list',
-    response=List[PeopleDetailSchema],
+    response=List[PeoplePreviewSchema],
     tags=[_('Люди театра')],
     summary=_('Получить список людей театра')
 )
