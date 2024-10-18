@@ -1,11 +1,11 @@
 from ninja import ModelSchema
 
-from .people_schemes import PeopleOutSchema
+from .people_schemes import PeoplePreviewSchema
 from ..models import EventPeople
 
 
 class EventPeopleOutSchema(ModelSchema):
-    people: PeopleOutSchema
+    people: PeoplePreviewSchema
 
     class Config:
         model = EventPeople
