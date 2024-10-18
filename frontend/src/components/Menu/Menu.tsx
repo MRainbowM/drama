@@ -7,7 +7,7 @@ export default function Menu() {
             <ul>
                 <li><a href="/#events">Афиша</a></li>
                 {/* <li><a href="#">О нас</a></li> */}
-                <li><a href="#">Коллектив</a></li>
+                <li><a href="/peoples">Коллектив</a></li>
                 <li><a href="/sam">С.А.М.</a></li>
                 <li><a href="/#restaurant">Ресторан</a></li>
                 <li><a href="/#yoga">Yoga</a></li>
