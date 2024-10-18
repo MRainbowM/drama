@@ -5,4 +5,4 @@ from ..models import People
 
 @admin.register(People)
 class PeopleAdmin(admin.ModelAdmin):
-    pass
+    readonly_fields = ('slug',)
