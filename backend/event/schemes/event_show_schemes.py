@@ -17,4 +17,6 @@ class EventShowOutSchema(Schema):
 class EventShowFilterSchema(FilterSchema):
     start_at__gte: Optional[datetime] = Field(None, q='start_at__gte')
     start_at__lte: Optional[datetime] = Field(None, q='start_at__lte')
+    start_at__month__gte: Optional[int] = Field(None, q='start_at__month__gte')
+    start_at__year__gte: Optional[int] = Field(None, q='start_at__year__gte')
     is_enable: Optional[bool] = Field(None, q='is_enable')

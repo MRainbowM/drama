@@ -99,6 +99,10 @@ export interface components {
             start_at__gte?: string | null;
             /** Start At  Lte */
             start_at__lte?: string | null;
+            /** Start At  Month  Gte */
+            start_at__month__gte?: number | null;
+            /** Start At  Year  Gte */
+            start_at__year__gte?: number | null;
             /** Is Enable */
             is_enable?: boolean | null;
         };
@@ -294,6 +298,8 @@ export interface operations {
             query?: {
                 start_at__gte?: string | null;
                 start_at__lte?: string | null;
+                start_at__month__gte?: number | null;
+                start_at__year__gte?: number | null;
                 is_enable?: boolean | null;
             };
             header?: never;
