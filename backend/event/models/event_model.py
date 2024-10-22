@@ -1,5 +1,7 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from slugify import slugify
 
 from basis.models.dates_abstract_model import DatesAbstract
 from .services.event_cover_path import event_cover_path
@@ -38,3 +40,14 @@ class Event(DatesAbstract):
 
     def __str__(self) -> str:
         return str(self.name)
+
+    def clean(self) -> None:
+        """Валидация для админки"""
+        slug = slugify(self.name)
+        is_exists = Event.objects.filter(
+            slug=slug
+        ).exclude(id=self.id).exists()
+        if is_exists:
+            raise ValidationError(
+                _('Спектакль с таким названием уже создан')
+            )
