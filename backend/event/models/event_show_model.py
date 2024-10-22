@@ -33,7 +33,9 @@ class EventShow(DatesAbstract):
         pattern = f'{settings.TICKET_SERVICE_BASE_URL}/.+'
         result = re.fullmatch(pattern=pattern, string=self.link_to_buy_ticket)
         if not result:
-            raise ValidationError(
-                _('Ссылка на покупку билетов должна начинаться ' +
-                  f'с "{settings.TICKET_SERVICE_BASE_URL}/"')
-            )
+            raise ValidationError({
+                'link_to_buy_ticket': _(
+                    'Ссылка на покупку билетов должна начинаться ' +
+                    f'с "{settings.TICKET_SERVICE_BASE_URL}/"'
+                )
+            })

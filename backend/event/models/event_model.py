@@ -48,6 +48,6 @@ class Event(DatesAbstract):
             slug=slug
         ).exclude(id=self.id).exists()
         if is_exists:
-            raise ValidationError(
-                _('Спектакль с таким названием уже создан')
-            )
+            raise ValidationError({
+                'name': _('Спектакль с таким названием уже создан')
+            })
