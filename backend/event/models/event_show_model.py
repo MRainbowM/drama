@@ -1,3 +1,7 @@
+import re
+
+from django.conf import settings
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
@@ -22,3 +26,14 @@ class EventShow(DatesAbstract):
 
     def __str__(self) -> str:
         return f'{str(self.event.name)} {self.start_at.strftime("%d.%m.%Y")}'
+
+    def clean(self) -> None:
+        """Валидация для админки"""
+
+        pattern = f'{settings.TICKET_SERVICE_BASE_URL}/.+'
+        result = re.fullmatch(pattern=pattern, string=self.link_to_buy_ticket)
+        if not result:
+            raise ValidationError(
+                _('Ссылка на покупку билетов должна начинаться ' +
+                  f'с "{settings.TICKET_SERVICE_BASE_URL}/"')
+            )

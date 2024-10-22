@@ -120,3 +120,7 @@ if DEBUG:
     STATICFILES_DIRS = [
         BASE_DIR / 'static',
     ]
+
+
+# Базовая ссылка на сервис покупки билетов
+TICKET_SERVICE_BASE_URL = env('TICKET_SERVICE_BASE_URL')
