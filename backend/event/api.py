@@ -3,9 +3,11 @@ from typing import List
 
 from django.http import Http404
 from django.shortcuts import get_object_or_404
+from django.shortcuts import redirect
 from django.utils.translation import gettext_lazy as _
 from ninja import Query, Router
 
+from basis.settings import MEDIA_URL
 from event.models import EventShow, Event
 from .schemes import (
     EventShowFilterSchema,
@@ -33,12 +35,12 @@ def get_event_show_list(request, filters: EventShowFilterSchema = Query(...)):
 
 
 @router.get(
-    '/event_show/{event_date}',
+    '/program',
     response=EventProgramSchema,
     tags=[_('Афиша')],
-    summary=_('Получить программку спектакля по дате')
+    summary=_('Получить программку спектакля по текущей дате')
 )
-def get_event_program_by_date(request, event_date: date):
+def get_event_program_by_date(request, event_date: date = date.today()):
     event_show = EventShow.objects.filter(
         is_enable=True,
         start_at__date__gte=event_date
@@ -47,7 +49,10 @@ def get_event_program_by_date(request, event_date: date):
     if event_show is None:
         raise Http404
 
-    return event_show.event
+    if not event_show.event.program_pdf:
+        raise Http404
+
+    return redirect(f'{MEDIA_URL}{event_show.event.program_pdf}')
 
 
 @router.get(
