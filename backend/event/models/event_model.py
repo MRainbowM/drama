@@ -5,6 +5,7 @@ from slugify import slugify
 
 from basis.models.dates_abstract_model import DatesAbstract
 from .services.event_cover_path import event_cover_path
+from .services.event_program_pdf_path import event_program_pdf_path
 
 
 class Event(DatesAbstract):
@@ -33,6 +34,14 @@ class Event(DatesAbstract):
     premiere_at = models.DateField(_('Дата премьеры'))
     duration = models.TimeField(_('Длительность спектакля'))
     has_intermission = models.BooleanField(_('Есть антракт'), default=False)
+    program_pdf = models.FileField(
+        _('Программка спектакля'),
+        upload_to=event_program_pdf_path,
+        help_text='PDF файл с программой спектакля',
+        default='',
+        null=True,
+        blank=True
+    )
 
     class Meta:
         verbose_name = _('Спектакль')

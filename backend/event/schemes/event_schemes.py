@@ -37,5 +37,13 @@ class EventPreviewSchema(ModelSchema):
         ]
 
 
+class EventProgramSchema(ModelSchema):
+    class Config:
+        model = Event
+        model_fields = [
+            'program_pdf', 'name'
+        ]
+
+
 class EventFilterSchema(FilterSchema):
     is_enable: Optional[bool] = Field(None, q='is_enable')

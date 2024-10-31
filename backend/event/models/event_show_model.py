@@ -12,7 +12,12 @@ from .event_model import Event
 class EventShow(DatesAbstract):
     """Афиша"""
 
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, verbose_name=_('Спектакль'))
+    event = models.ForeignKey(
+        Event,
+        on_delete=models.CASCADE,
+        verbose_name=_('Спектакль'),
+        related_name='event_shows'
+    )
     start_at = models.DateTimeField(_('Дата и время начала спектакля'))
 
     is_enable = models.BooleanField(_('Показывать в афише'), default=True)

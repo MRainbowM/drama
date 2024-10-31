@@ -1,5 +1,7 @@
+from datetime import date
 from typing import List
 
+from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from ninja import Query, Router
@@ -10,7 +12,8 @@ from .schemes import (
     EventShowOutSchema,
     EventDetailSchema,
     EventFilterSchema,
-    EventPreviewSchema
+    EventPreviewSchema,
+    EventProgramSchema
 )
 
 router = Router()
@@ -27,6 +30,24 @@ def get_event_show_list(request, filters: EventShowFilterSchema = Query(...)):
     event_show_list = filters.filter(event_show_list).order_by('start_at')
 
     return event_show_list
+
+
+@router.get(
+    '/event_show/{event_date}',
+    response=EventProgramSchema,
+    tags=[_('Афиша')],
+    summary=_('Получить программку спектакля по дате')
+)
+def get_event_program_by_date(request, event_date: date):
+    event_show = EventShow.objects.filter(
+        is_enable=True,
+        start_at__date__gte=event_date
+    ).order_by('start_at').first()
+
+    if event_show is None:
+        raise Http404
+
+    return event_show.event
 
 
 @router.get(
